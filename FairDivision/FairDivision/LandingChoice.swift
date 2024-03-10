@@ -31,7 +31,7 @@ struct LandingChoice: View {
                 Image("ChoiceCard")
                     .offset(x: 4)
                 VStack {
-                    NavigationLink(destination: OpeningScreen()) {
+                    NavigationLink(destination: GoodsInput()) {
                         ZStack {
                             Rectangle()
                                 .fill(Color(hex: 0x7CB8FF))
@@ -45,7 +45,7 @@ struct LandingChoice: View {
                     }
                     .padding(.bottom, 35)
                     .padding(.top, 50)
-                    NavigationLink(destination: OpeningScreen()) {
+                    NavigationLink(destination: GoodsInput()) {
                         ZStack {
                             Rectangle()
                                 .fill(Color(hex: 0x7CB8FF))
