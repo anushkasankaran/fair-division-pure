@@ -9,7 +9,7 @@ import SwiftUI
 
 struct GoodsInput: View {
 //    Change to binding var to allow to be used in CreditsInput
-    @State private var goods: [String] = ["Hello", "World"]
+@State private var goods: [Good] = [Good(name: "Hello"), Good(name: "World")]
     @State private var newGood: String = ""
     @State private var isEditing: Bool = false
     
@@ -17,28 +17,28 @@ struct GoodsInput: View {
         ZStack{
             ScrollView {
                 Spacer().frame(height: UIScreen.main.bounds.height/9)
-                ForEach(goods, id: \.self) { good in
+                ForEach(goods) { good in
                     ZStack {
                         Rectangle()
-                            .fill(.white)
+                            .fill(Color.white)
                             .cornerRadius(20)
                             .shadow(radius: 7)
                             .frame(width: UIScreen.main.bounds.width - 40, height: UIScreen.main.bounds.height/14)
-                        Text(good)
+                        Text(good.name)
                             .font(.system(size: 24))
                             .frame(maxWidth: .infinity, alignment: .leading)
                             .padding(.leading)
                             .frame(width: UIScreen.main.bounds.width - 40)
                         Button(action: {
-                                if let index = goods.firstIndex(of: good) {
-                                    goods.remove(at: index)
-                                }
-                            }) {
-                                Image(systemName: "x.circle")
-                                    .foregroundColor(.black)
+                            if let index = goods.firstIndex(where: { $0.id == good.id }) {
+                                goods.remove(at: index)
                             }
-                            .frame(maxWidth: UIScreen.main.bounds.width - 50, alignment: .trailing)
-                            .padding(.trailing)
+                        }) {
+                            Image(systemName: "x.circle")
+                                .foregroundColor(.black)
+                        }
+                        .frame(maxWidth: UIScreen.main.bounds.width - 50, alignment: .trailing)
+                        .padding(.trailing)
                     }
                 }
                 .padding(.bottom, 10)
@@ -46,7 +46,7 @@ struct GoodsInput: View {
                 ZStack {
                     if isEditing {
                         Rectangle()
-                            .fill(.white)
+                            .fill(Color.white)
                             .cornerRadius(20)
                             .shadow(radius: 7)
                         TextField("Enter good", text: $newGood, onCommit: {
@@ -117,7 +117,8 @@ struct GoodsInput: View {
     
     private func addGood() {
         if !newGood.isEmpty {
-            goods.append(newGood)
+            let newGoodItem = Good(name: newGood)
+            goods.append(newGoodItem)
         }
         newGood = ""
         print(goods)
