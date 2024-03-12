@@ -9,7 +9,9 @@ import SwiftUI
 
 struct PeopleInput: View {
 //    Change people to binding var to allow credit selection page to use
-    @State private var people: [String] = ["Hello", "World"]
+    @State private var people: [Agent] = [
+        Agent(name: "Hello"), Agent(name: "World")
+    ]
     @State private var newPerson: String = ""
     @State private var isEditing: Bool = false
     
@@ -17,28 +19,28 @@ struct PeopleInput: View {
         ZStack{
             ScrollView {
                 Spacer().frame(height: UIScreen.main.bounds.height/9)
-                ForEach(people, id: \.self) { person in
+                ForEach(people) { agent in
                     ZStack {
                         Rectangle()
-                            .fill(.white)
+                            .fill(Color.white)
                             .cornerRadius(20)
                             .shadow(radius: 7)
                             .frame(width: UIScreen.main.bounds.width - 40, height: UIScreen.main.bounds.height/14)
-                        Text(person)
+                        Text(agent.name)
                             .font(.system(size: 24))
                             .frame(maxWidth: .infinity, alignment: .leading)
                             .padding(.leading)
                             .frame(width: UIScreen.main.bounds.width - 40)
                         Button(action: {
-                                if let index = people.firstIndex(of: person) {
-                                    people.remove(at: index)
-                                }
-                            }) {
-                                Image(systemName: "x.circle")
-                                    .foregroundColor(.black)
+                            if let index = people.firstIndex(where: { $0.id == agent.id }) {
+                                people.remove(at: index)
                             }
-                            .frame(maxWidth: UIScreen.main.bounds.width - 50, alignment: .trailing)
-                            .padding(.trailing)
+                        }) {
+                            Image(systemName: "x.circle")
+                                .foregroundColor(.black)
+                        }
+                        .frame(maxWidth: UIScreen.main.bounds.width - 50, alignment: .trailing)
+                        .padding(.trailing)
                     }
                 }
                 .padding(.bottom, 10)
@@ -117,7 +119,7 @@ struct PeopleInput: View {
     
     private func addPerson() {
         if !newPerson.isEmpty {
-            people.append(newPerson)
+            people.append(Agent(name: newPerson))
         }
         newPerson = ""
         print(people)
