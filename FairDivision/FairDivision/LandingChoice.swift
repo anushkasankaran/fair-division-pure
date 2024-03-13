@@ -23,10 +23,10 @@ extension Color {
 struct LandingChoice: View {
     var body: some View {
         VStack {
-            Text("Fair Division")
+            Text("What would you like to divide?")
                 .offset(y: -15)
                 .font(.system(size: 40))
-                .padding(.bottom, UIScreen.main.bounds.height/20)
+                .padding(.bottom, UIScreen.main.bounds.height/20).multilineTextAlignment(.center)
             ZStack {
                 Image("ChoiceCard")
                     .offset(x: 4)

@@ -11,6 +11,7 @@
 		D78637B12B8A53490042E7D7 /* LandingChoice.swift in Sources */ = {isa = PBXBuildFile; fileRef = D78637B02B8A53490042E7D7 /* LandingChoice.swift */; };
 		F4790B9A2B92F4F600A8543B /* ValuesInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4790B992B92F4F600A8543B /* ValuesInput.swift */; };
 		F4790B9C2B92F74800A8543B /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4790B9B2B92F74800A8543B /* Models.swift */; };
+		F49616A92B9A794900EAEC34 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = F49616A72B9A794900EAEC34 /* Model.xcdatamodeld */; };
 		F4DF70D72B894480000B9015 /* FairDivisionApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4DF70D62B894480000B9015 /* FairDivisionApp.swift */; };
 		F4DF70D92B894480000B9015 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4DF70D82B894480000B9015 /* ContentView.swift */; };
 		F4DF70DB2B894482000B9015 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F4DF70DA2B894482000B9015 /* Assets.xcassets */; };
@@ -42,6 +43,7 @@
 		D78637B02B8A53490042E7D7 /* LandingChoice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LandingChoice.swift; sourceTree = "<group>"; };
 		F4790B992B92F4F600A8543B /* ValuesInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValuesInput.swift; sourceTree = "<group>"; };
 		F4790B9B2B92F74800A8543B /* Models.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Models.swift; sourceTree = "<group>"; };
+		F49616A82B9A794900EAEC34 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
 		F4DF70D32B894480000B9015 /* FairDivision.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FairDivision.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F4DF70D62B894480000B9015 /* FairDivisionApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FairDivisionApp.swift; sourceTree = "<group>"; };
 		F4DF70D82B894480000B9015 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -110,6 +112,7 @@
 				D78637B02B8A53490042E7D7 /* LandingChoice.swift */,
 				F4790B992B92F4F600A8543B /* ValuesInput.swift */,
 				F4790B9B2B92F74800A8543B /* Models.swift */,
+				F49616A72B9A794900EAEC34 /* Model.xcdatamodeld */,
 			);
 			path = FairDivision;
 			sourceTree = "<group>";
@@ -272,6 +275,7 @@
 				F4DF70D92B894480000B9015 /* ContentView.swift in Sources */,
 				D78637AF2B896E110042E7D7 /* OpeningScreen.swift in Sources */,
 				D78637B12B8A53490042E7D7 /* LandingChoice.swift in Sources */,
+				F49616A92B9A794900EAEC34 /* Model.xcdatamodeld in Sources */,
 				F4790B9C2B92F74800A8543B /* Models.swift in Sources */,
 				F4790B9A2B92F4F600A8543B /* ValuesInput.swift in Sources */,
 				F4DF70D72B894480000B9015 /* FairDivisionApp.swift in Sources */,
@@ -598,6 +602,20 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		F49616A72B9A794900EAEC34 /* Model.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				F49616A82B9A794900EAEC34 /* Model.xcdatamodel */,
+			);
+			currentVersion = F49616A82B9A794900EAEC34 /* Model.xcdatamodel */;
+			name = Model.xcdatamodeld;
+			path = "/Users/srikarp/Freshman/PURE/fair-division-pure/FairDivision/FairDivision/Model.xcdatamodeld";
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = F4DF70CB2B89447F000B9015 /* Project object */;
 }

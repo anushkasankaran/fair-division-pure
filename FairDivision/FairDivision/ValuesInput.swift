@@ -11,7 +11,7 @@ struct ValuesInput: View {
     let agents: [Agent] = [
         Agent(name: "Agent 1"),
         Agent(name: "Agent 2"),
-        // Add more agents as needed
+        
     ]
 
     var body: some View {
