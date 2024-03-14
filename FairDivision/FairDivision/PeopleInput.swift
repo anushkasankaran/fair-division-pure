@@ -6,35 +6,38 @@
 //
 
 import SwiftUI
+import CoreData
 
 struct PeopleInput: View {
-//    Change people to binding var to allow credit selection page to use
-    @State private var people: [Agent] = [
-        Agent(name: "Hello"), Agent(name: "World")
-    ]
-    @State private var newPerson: String = ""
+    //    Change people to binding var to allow credit selection page to use
+    //    @State private var people: [Agents] = [
+    //        Agents(name: "Hello"), Agents(name: "World")
+    //    ]
     @State private var isEditing: Bool = false
+    
+    @Environment(\.managedObjectContext) private var viewContext
+    @FetchRequest(entity: Agent.entity(), sortDescriptors: []) private var agents: FetchedResults<Agent>
     
     var body: some View {
         NavigationView {
             ZStack{
                 ScrollView {
                     Spacer().frame(height: UIScreen.main.bounds.height/9)
-                    ForEach(people) { agent in
+                    ForEach(agents, id: \.self) { agent in
                         ZStack {
                             Rectangle()
                                 .fill(Color.white)
                                 .cornerRadius(20)
                                 .shadow(radius: 7)
                                 .frame(width: UIScreen.main.bounds.width - 40, height: UIScreen.main.bounds.height/14)
-                            Text(agent.name)
+                            Text(agent.name ?? "Unknown")
                                 .font(.system(size: 24))
                                 .frame(maxWidth: .infinity, alignment: .leading)
                                 .padding(.leading)
                                 .frame(width: UIScreen.main.bounds.width - 40)
                             Button(action: {
-                                if let index = people.firstIndex(where: { $0.id == agent.id }) {
-                                    people.remove(at: index)
+                                if let index = agents.firstIndex(where: { $0.id == agent.id }) {
+                                    viewContext.delete(agents[index])
                                 }
                             }) {
                                 Image(systemName: "x.circle")
@@ -45,22 +48,21 @@ struct PeopleInput: View {
                         }
                     }
                     .padding(.bottom, 10)
-                    
                     ZStack {
                         if isEditing {
                             Rectangle()
                                 .fill(.white)
                                 .cornerRadius(20)
                                 .shadow(radius: 7)
+                            @State var newPerson: String = ""
                             TextField("Enter Name", text: $newPerson, onCommit: {
-                                self.addPerson()
+                                self.addPerson(input: newPerson)
                                 self.isEditing = false
                             })
                             .padding(.leading)
                             .font(.system(size: 24))
                         } else {
                             Button(action: {
-                                newPerson = ""
                                 self.isEditing = true
                             }) {
                                 HStack {
@@ -97,7 +99,7 @@ struct PeopleInput: View {
                 .offset(y: -UIScreen.main.bounds.height/2.5)
                 
                 ZStack {
-                    if (people.count >= 2) {
+                    if (agents.count >= 2) {
                         NavigationLink(destination: CreditsSelection().navigationBarBackButtonHidden(true)) {
                             ZStack {
                                 Rectangle()
@@ -132,12 +134,12 @@ struct PeopleInput: View {
         }
     }
     
-    private func addPerson() {
-        if !newPerson.isEmpty {
-            people.append(Agent(name: newPerson))
-        }
-        newPerson = ""
-        print(people)
+    private func addPerson(input: String) {
+        let agent = Agent(context: viewContext)
+        agent.id = UUID()
+        agent.name = input
+        try? viewContext.save()
+        print(agents)
     }
 }
 

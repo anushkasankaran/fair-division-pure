@@ -10,8 +10,11 @@ import SwiftUI
 struct CreditsInput: View {
 //    Change goods to take values from GoodsInput
     var name: String
-    @State private var goods: [String] = ["Hello", "World"]
     @State var inputs: [Int] = []
+    
+    @Environment(\.managedObjectContext) private var viewContext
+    @FetchRequest(entity: Agent.entity(), sortDescriptors: []) private var agents: FetchedResults<Agent>
+    @FetchRequest(entity: Good.entity(), sortDescriptors: []) private var goods: FetchedResults<Good>
     
     var body: some View {
         NavigationView {
@@ -19,7 +22,7 @@ struct CreditsInput: View {
                 ScrollView {
                     Spacer().frame(height: UIScreen.main.bounds.height/7)
                     ForEach(goods, id: \.self) { good in
-                        Text(good)
+                        Text(good.name ?? "Unknown")
                             .font(.system(size: 24))
                             .frame(maxWidth: .infinity, alignment: .leading)
                             .padding(.leading, 30)
