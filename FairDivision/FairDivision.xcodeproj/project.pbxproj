@@ -290,11 +290,8 @@
 				D74172EB2B9BDD2B00E6CCA2 /* CreditsInput.swift in Sources */,
 				D702047B2B93888D00A9C66A /* GoodsInput.swift in Sources */,
 				D78637B12B8A53490042E7D7 /* LandingChoice.swift in Sources */,
-<<<<<<< HEAD
 				F49616A92B9A794900EAEC34 /* Model.xcdatamodeld in Sources */,
-=======
 				D74172E92B9BD86F00E6CCA2 /* CreditsSelection.swift in Sources */,
->>>>>>> d4acf82afcb9b1aa7db119d7c6d2c909b47fb966
 				F4790B9C2B92F74800A8543B /* Models.swift in Sources */,
 				F4790B9A2B92F4F600A8543B /* ValuesInput.swift in Sources */,
 				F4DF70D72B894480000B9015 /* FairDivisionApp.swift in Sources */,
