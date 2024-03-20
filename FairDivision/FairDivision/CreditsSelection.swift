@@ -9,22 +9,27 @@ import SwiftUI
 
 struct CreditsSelection: View {
 //    Temporary values to create UI -> will be binding var taken from inputted values from people input page
-    @State private var people: [String] = ["Hello", "World"]
+    @State private var people: [Agent] = [
+        Agent(name: "Hello"), Agent(name: "World")
+    ]
+    @State private var goods: [Good] = [
+        Good(name: "Hello"), Good(name: "World")
+    ]
     
     var body: some View {
         NavigationView {
             ZStack{
                 ScrollView {
                     Spacer().frame(height: UIScreen.main.bounds.height/7)
-                    ForEach(people, id: \.self) { person in
-                        NavigationLink (destination: CreditsInput(name: person).navigationBarBackButtonHidden(true)) {
+                    ForEach(people) { person in
+                        NavigationLink (destination: CreditsInput(agent: person).navigationBarBackButtonHidden(true)) {
                             ZStack {
                                 Rectangle()
                                     .fill(.white)
                                     .cornerRadius(20)
                                     .shadow(radius: 7)
                                     .frame(width: UIScreen.main.bounds.width - 40, height: UIScreen.main.bounds.height/14)
-                                Text(person)
+                                Text(person.name)
                                     .font(.system(size: 24))
                                     .foregroundColor(.black)
                                     .frame(maxWidth: .infinity, alignment: .leading)
