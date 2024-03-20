@@ -9,8 +9,12 @@ import SwiftUI
 
 struct CreditsInput: View {
 //    Change goods to take values from GoodsInput
-    var name: String
+    var agent: Agent
     @State var inputs: [Int] = []
+    @State private var stepperValue: Int = 0
+    @State private var goods: [Good] = [
+        Good(name: "Hello"), Good(name: "World")
+    ]
     
     @Environment(\.managedObjectContext) private var viewContext
     @FetchRequest(entity: Agent.entity(), sortDescriptors: []) private var agents: FetchedResults<Agent>
@@ -21,11 +25,48 @@ struct CreditsInput: View {
             ZStack{
                 ScrollView {
                     Spacer().frame(height: UIScreen.main.bounds.height/7)
-                    ForEach(goods, id: \.self) { good in
-                        Text(good.name ?? "Unknown")
-                            .font(.system(size: 24))
-                            .frame(maxWidth: .infinity, alignment: .leading)
+                    ForEach(goods) { good in
+                        HStack {
+                            Text(good.name)
+                                .font(.system(size: 24))
+                                .frame(maxWidth: .infinity, alignment: .leading)
                             .padding(.leading, 30)
+                            
+                            HStack {
+                                Button(action: {
+                                    decreaseStepper()
+                                }) {
+                                    ZStack {
+                                        Image(systemName: "circle.fill")
+                                            .resizable()
+                                            .frame(width: 40, height: 40)
+                                            .foregroundColor(.white)
+                                            .shadow(radius: 5)
+                                        Text("-")
+                                            .foregroundColor(.black)
+                                    }
+                                }
+                                
+                                Text("\(stepperValue)")
+                                    .foregroundColor(.black)
+                                    .padding(.horizontal)
+                                
+                                Button(action: {
+                                    increaseStepper()
+                                }) {
+                                    ZStack {
+                                        Image(systemName: "circle.fill")
+                                            .resizable()
+                                            .frame(width: 40, height: 40)
+                                            .foregroundColor(.white)
+                                            .shadow(radius: 5)
+                                        Text("+")
+                                            .foregroundColor(.black)
+                                    }
+                                }
+                                .padding(.trailing)
+                            }
+                        }
                     }
                     .padding(.bottom, 10)
                 }
@@ -44,7 +85,7 @@ struct CreditsInput: View {
                             .foregroundColor(.black)
                     }
                     VStack {
-                        Text(name)
+                        Text(agent.name)
                             .font(.system(size: 40))
                             .frame(maxWidth: .infinity, alignment: .center)
                         Text("Input values for each good")
@@ -62,8 +103,18 @@ struct CreditsInput: View {
             }
         }
     }
+    
+    private func increaseStepper() {
+        stepperValue += 1
+    }
+    
+    private func decreaseStepper() {
+        if (stepperValue > 0) {
+            stepperValue -= 1
+        }
+    }
 }
 
 #Preview {
-    CreditsInput(name: "Adi")
+    CreditsInput(agent: Agent(name: "Hello"))
 }
