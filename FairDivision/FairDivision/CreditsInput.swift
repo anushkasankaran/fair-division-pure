@@ -16,6 +16,10 @@ struct CreditsInput: View {
         Good(name: "Hello"), Good(name: "World")
     ]
     
+    @Environment(\.managedObjectContext) private var viewContext
+    @FetchRequest(entity: Agent.entity(), sortDescriptors: []) private var agents: FetchedResults<Agent>
+    @FetchRequest(entity: Good.entity(), sortDescriptors: []) private var goods: FetchedResults<Good>
+    
     var body: some View {
         NavigationView {
             ZStack{

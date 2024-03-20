@@ -24,7 +24,7 @@ struct LandingChoice: View {
     var body: some View {
         NavigationView {
             VStack {
-                Text("Fair Division")
+                Text("What would you like to divide?")
                     .offset(y: -15)
                     .font(.system(size: 40))
                     .padding(.bottom, UIScreen.main.bounds.height/20)

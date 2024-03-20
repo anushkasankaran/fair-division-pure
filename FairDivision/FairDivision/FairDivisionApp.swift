@@ -9,9 +9,11 @@ import SwiftUI
 
 @main
 struct FairDivisionApp: App {
+    @StateObject private var dataController = DataController()
+    
     var body: some Scene {
         WindowGroup {
-            GoodsInput()
+            PeopleInput().environment(\.managedObjectContext, dataController.container.viewContext)
         }
     }
 }

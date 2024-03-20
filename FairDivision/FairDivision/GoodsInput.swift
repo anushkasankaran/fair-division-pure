@@ -9,30 +9,32 @@ import SwiftUI
 
 struct GoodsInput: View {
 //    Change to binding var to allow to be used in CreditsInput
-@State private var goods: [Good] = [Good(name: "Hello"), Good(name: "World")]
-    @State private var newGood: String = ""
+    //@State private var goods: [Good] = [Good(name: "Hello"), Good(name: "World")]
     @State private var isEditing: Bool = false
+    
+    @Environment(\.managedObjectContext) private var viewContext
+    @FetchRequest(entity: Good.entity(), sortDescriptors: []) private var goods: FetchedResults<Good>
     
     var body: some View {
         NavigationView {
             ZStack{
                 ScrollView {
                     Spacer().frame(height: UIScreen.main.bounds.height/9)
-                    ForEach(goods) { good in
+                    ForEach(goods, id: \.self) { good in
                         ZStack {
                             Rectangle()
                                 .fill(Color.white)
                                 .cornerRadius(20)
                                 .shadow(radius: 7)
                                 .frame(width: UIScreen.main.bounds.width - 40, height: UIScreen.main.bounds.height/14)
-                            Text(good.name)
+                            Text(good.name ?? "Unknown")
                                 .font(.system(size: 24))
                                 .frame(maxWidth: .infinity, alignment: .leading)
                                 .padding(.leading)
                                 .frame(width: UIScreen.main.bounds.width - 40)
                             Button(action: {
                                 if let index = goods.firstIndex(where: { $0.id == good.id }) {
-                                    goods.remove(at: index)
+                                    viewContext.delete(goods[index])
                                 }
                             }) {
                                 Image(systemName: "x.circle")
@@ -50,15 +52,15 @@ struct GoodsInput: View {
                                 .fill(Color.white)
                                 .cornerRadius(20)
                                 .shadow(radius: 7)
+                            @State var newGood: String = ""
                             TextField("Enter good", text: $newGood, onCommit: {
-                                self.addGood()
+                                self.addGood(input: newGood)
                                 self.isEditing = false
                             })
                             .padding(.leading)
                             .font(.system(size: 24))
                         } else {
                             Button(action: {
-                                newGood = ""
                                 self.isEditing = true
                             }) {
                                 HStack {
@@ -130,12 +132,11 @@ struct GoodsInput: View {
         }
     }
     
-    private func addGood() {
-        if !newGood.isEmpty {
-            let newGoodItem = Good(name: newGood)
-            goods.append(newGoodItem)
-        }
-        newGood = ""
+    private func addGood(input: String) {
+        let good = Good(context: viewContext)
+        good.id = UUID()
+        good.name = input
+        try? viewContext.save()
         print(goods)
     }
 }
