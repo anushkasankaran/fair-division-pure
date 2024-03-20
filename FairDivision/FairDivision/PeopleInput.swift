@@ -24,6 +24,7 @@ struct PeopleInput: View {
                 ScrollView {
                     Spacer().frame(height: UIScreen.main.bounds.height/9)
                     ForEach(agents, id: \.self) { agent in
+                        
                         ZStack {
                             Rectangle()
                                 .fill(Color.white)

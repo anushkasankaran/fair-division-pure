@@ -21,27 +21,29 @@ struct GoodsInput: View {
                 ScrollView {
                     Spacer().frame(height: UIScreen.main.bounds.height/9)
                     ForEach(goods, id: \.self) { good in
-                        ZStack {
-                            Rectangle()
-                                .fill(Color.white)
-                                .cornerRadius(20)
-                                .shadow(radius: 7)
-                                .frame(width: UIScreen.main.bounds.width - 40, height: UIScreen.main.bounds.height/14)
-                            Text(good.name ?? "Unknown")
-                                .font(.system(size: 24))
-                                .frame(maxWidth: .infinity, alignment: .leading)
-                                .padding(.leading)
-                                .frame(width: UIScreen.main.bounds.width - 40)
-                            Button(action: {
-                                if let index = goods.firstIndex(where: { $0.id == good.id }) {
-                                    viewContext.delete(goods[index])
+                        NavigationLink (destination: CreditsInput(agent: Agent()).navigationBarBackButtonHidden(true)) {
+                            ZStack {
+                                Rectangle()
+                                    .fill(Color.white)
+                                    .cornerRadius(20)
+                                    .shadow(radius: 7)
+                                    .frame(width: UIScreen.main.bounds.width - 40, height: UIScreen.main.bounds.height/14)
+                                Text(good.name ?? "Unknown")
+                                    .font(.system(size: 24))
+                                    .frame(maxWidth: .infinity, alignment: .leading)
+                                    .padding(.leading)
+                                    .frame(width: UIScreen.main.bounds.width - 40)
+                                Button(action: {
+                                    if let index = goods.firstIndex(where: { $0.id == good.id }) {
+                                        viewContext.delete(goods[index])
+                                    }
+                                }) {
+                                    Image(systemName: "x.circle")
+                                        .foregroundColor(.black)
                                 }
-                            }) {
-                                Image(systemName: "x.circle")
-                                    .foregroundColor(.black)
+                                .frame(maxWidth: UIScreen.main.bounds.width - 50, alignment: .trailing)
+                                .padding(.trailing)
                             }
-                            .frame(maxWidth: UIScreen.main.bounds.width - 50, alignment: .trailing)
-                            .padding(.trailing)
                         }
                     }
                     .padding(.bottom, 10)

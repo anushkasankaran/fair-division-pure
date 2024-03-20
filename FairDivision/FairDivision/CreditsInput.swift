@@ -12,9 +12,6 @@ struct CreditsInput: View {
     var agent: Agent
     @State var inputs: [Int] = []
     @State private var stepperValue: Int = 0
-    @State private var goods: [Good] = [
-        Good(name: "Hello"), Good(name: "World")
-    ]
     
     @Environment(\.managedObjectContext) private var viewContext
     @FetchRequest(entity: Agent.entity(), sortDescriptors: []) private var agents: FetchedResults<Agent>
@@ -27,7 +24,7 @@ struct CreditsInput: View {
                     Spacer().frame(height: UIScreen.main.bounds.height/7)
                     ForEach(goods) { good in
                         HStack {
-                            Text(good.name)
+                            Text(good.name ?? "Unknown")
                                 .font(.system(size: 24))
                                 .frame(maxWidth: .infinity, alignment: .leading)
                             .padding(.leading, 30)
@@ -85,7 +82,7 @@ struct CreditsInput: View {
                             .foregroundColor(.black)
                     }
                     VStack {
-                        Text(agent.name)
+                        Text(agent.name ?? "unknown")
                             .font(.system(size: 40))
                             .frame(maxWidth: .infinity, alignment: .center)
                         Text("Input values for each good")
@@ -116,5 +113,5 @@ struct CreditsInput: View {
 }
 
 #Preview {
-    CreditsInput(agent: Agent(name: "Hello"))
+    CreditsInput(agent: Agent())
 }

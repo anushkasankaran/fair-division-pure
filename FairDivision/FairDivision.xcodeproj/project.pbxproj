@@ -13,6 +13,8 @@
 		D74172EB2B9BDD2B00E6CCA2 /* CreditsInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = D74172EA2B9BDD2B00E6CCA2 /* CreditsInput.swift */; };
 		D78637AF2B896E110042E7D7 /* OpeningScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = D78637AE2B896E110042E7D7 /* OpeningScreen.swift */; };
 		D78637B12B8A53490042E7D7 /* LandingChoice.swift in Sources */ = {isa = PBXBuildFile; fileRef = D78637B02B8A53490042E7D7 /* LandingChoice.swift */; };
+		D7C4E4572BAB9BD70088F728 /* DataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = F4E890FC2BA29288009ABBC8 /* DataModel.xcdatamodeld */; };
+		D7C4E4582BAB9BD80088F728 /* DataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = F4E890FC2BA29288009ABBC8 /* DataModel.xcdatamodeld */; };
 		F42417D32BA2D79A00BF8B90 /* Agent+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = F42417D12BA2D79A00BF8B90 /* Agent+CoreDataClass.swift */; };
 		F42417D42BA2D79A00BF8B90 /* Agent+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = F42417D22BA2D79A00BF8B90 /* Agent+CoreDataProperties.swift */; };
 		F42417D62BA2D9E100BF8B90 /* DataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = F4E890FC2BA29288009ABBC8 /* DataModel.xcdatamodeld */; };
@@ -55,12 +57,12 @@
 		D74172EA2B9BDD2B00E6CCA2 /* CreditsInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreditsInput.swift; sourceTree = "<group>"; };
 		D78637AE2B896E110042E7D7 /* OpeningScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpeningScreen.swift; sourceTree = "<group>"; };
 		D78637B02B8A53490042E7D7 /* LandingChoice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LandingChoice.swift; sourceTree = "<group>"; };
-		F42417D12BA2D79A00BF8B90 /* Agent+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Agent+CoreDataClass.swift"; path = "FairDivision/Agent+CoreDataClass.swift"; sourceTree = "<group>"; };
-		F42417D22BA2D79A00BF8B90 /* Agent+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Agent+CoreDataProperties.swift"; path = "FairDivision/Agent+CoreDataProperties.swift"; sourceTree = "<group>"; };
-		F42417D72BA2D9F000BF8B90 /* Good+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Good+CoreDataClass.swift"; path = "FairDivision/Good+CoreDataClass.swift"; sourceTree = "<group>"; };
-		F42417D82BA2D9F000BF8B90 /* Good+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Good+CoreDataProperties.swift"; path = "FairDivision/Good+CoreDataProperties.swift"; sourceTree = "<group>"; };
-		F42417DB2BA2D9FB00BF8B90 /* GoodValue+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "GoodValue+CoreDataClass.swift"; path = "FairDivision/GoodValue+CoreDataClass.swift"; sourceTree = "<group>"; };
-		F42417DC2BA2D9FB00BF8B90 /* GoodValue+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "GoodValue+CoreDataProperties.swift"; path = "FairDivision/GoodValue+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		F42417D12BA2D79A00BF8B90 /* Agent+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Agent+CoreDataClass.swift"; sourceTree = "<group>"; };
+		F42417D22BA2D79A00BF8B90 /* Agent+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Agent+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		F42417D72BA2D9F000BF8B90 /* Good+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Good+CoreDataClass.swift"; sourceTree = "<group>"; };
+		F42417D82BA2D9F000BF8B90 /* Good+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Good+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		F42417DB2BA2D9FB00BF8B90 /* GoodValue+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "GoodValue+CoreDataClass.swift"; sourceTree = "<group>"; };
+		F42417DC2BA2D9FB00BF8B90 /* GoodValue+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "GoodValue+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		F4790B992B92F4F600A8543B /* ValuesInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValuesInput.swift; sourceTree = "<group>"; };
 		F4DF70D32B894480000B9015 /* FairDivision.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FairDivision.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F4DF70D62B894480000B9015 /* FairDivisionApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FairDivisionApp.swift; sourceTree = "<group>"; };
@@ -101,7 +103,7 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		F4DF70CA2B89447F000B9015 = {
+		D7C4E4562BAB95C30088F728 /* CoreDataModels */ = {
 			isa = PBXGroup;
 			children = (
 				F42417DB2BA2D9FB00BF8B90 /* GoodValue+CoreDataClass.swift */,
@@ -110,6 +112,13 @@
 				F42417D82BA2D9F000BF8B90 /* Good+CoreDataProperties.swift */,
 				F42417D12BA2D79A00BF8B90 /* Agent+CoreDataClass.swift */,
 				F42417D22BA2D79A00BF8B90 /* Agent+CoreDataProperties.swift */,
+			);
+			path = CoreDataModels;
+			sourceTree = "<group>";
+		};
+		F4DF70CA2B89447F000B9015 = {
+			isa = PBXGroup;
+			children = (
 				F4DF70D52B894480000B9015 /* FairDivision */,
 				F4DF70E62B894482000B9015 /* FairDivisionTests */,
 				F4DF70F02B894482000B9015 /* FairDivisionUITests */,
@@ -130,6 +139,7 @@
 		F4DF70D52B894480000B9015 /* FairDivision */ = {
 			isa = PBXGroup;
 			children = (
+				D7C4E4562BAB95C30088F728 /* CoreDataModels */,
 				F4DF70D62B894480000B9015 /* FairDivisionApp.swift */,
 				F4DF70D82B894480000B9015 /* ContentView.swift */,
 				F4DF70DA2B894482000B9015 /* Assets.xcassets */,
@@ -327,6 +337,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F4DF70E82B894482000B9015 /* FairDivisionTests.swift in Sources */,
+				D7C4E4572BAB9BD70088F728 /* DataModel.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -334,6 +345,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D7C4E4582BAB9BD80088F728 /* DataModel.xcdatamodeld in Sources */,
 				F4DF70F22B894482000B9015 /* FairDivisionUITests.swift in Sources */,
 				F4DF70F42B894482000B9015 /* FairDivisionUITestsLaunchTests.swift in Sources */,
 			);
