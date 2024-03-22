@@ -83,7 +83,7 @@ struct CreditsInput: View {
                             .foregroundColor(.black)
                     }
                     VStack {
-                        Text(agent.name ?? "Unknown")
+                        Text(agent.name ?? "unknown")
                             .font(.system(size: 40))
                             .frame(maxWidth: .infinity, alignment: .center)
                         Text("Input values for each good")

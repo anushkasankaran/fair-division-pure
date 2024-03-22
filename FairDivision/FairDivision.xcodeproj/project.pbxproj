@@ -13,9 +13,9 @@
 		D74172EB2B9BDD2B00E6CCA2 /* CreditsInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = D74172EA2B9BDD2B00E6CCA2 /* CreditsInput.swift */; };
 		D78637AF2B896E110042E7D7 /* OpeningScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = D78637AE2B896E110042E7D7 /* OpeningScreen.swift */; };
 		D78637B12B8A53490042E7D7 /* LandingChoice.swift in Sources */ = {isa = PBXBuildFile; fileRef = D78637B02B8A53490042E7D7 /* LandingChoice.swift */; };
+		D7C4E45E2BABA1140088F728 /* DataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D7C4E45C2BABA1140088F728 /* DataModel.xcdatamodeld */; };
 		F42417D32BA2D79A00BF8B90 /* Agent+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = F42417D12BA2D79A00BF8B90 /* Agent+CoreDataClass.swift */; };
 		F42417D42BA2D79A00BF8B90 /* Agent+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = F42417D22BA2D79A00BF8B90 /* Agent+CoreDataProperties.swift */; };
-		F42417D62BA2D9E100BF8B90 /* DataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = F4E890FC2BA29288009ABBC8 /* DataModel.xcdatamodeld */; };
 		F42417D92BA2D9F000BF8B90 /* Good+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = F42417D72BA2D9F000BF8B90 /* Good+CoreDataClass.swift */; };
 		F42417DA2BA2D9F000BF8B90 /* Good+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = F42417D82BA2D9F000BF8B90 /* Good+CoreDataProperties.swift */; };
 		F42417DD2BA2D9FB00BF8B90 /* GoodValue+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = F42417DB2BA2D9FB00BF8B90 /* GoodValue+CoreDataClass.swift */; };
@@ -55,12 +55,13 @@
 		D74172EA2B9BDD2B00E6CCA2 /* CreditsInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreditsInput.swift; sourceTree = "<group>"; };
 		D78637AE2B896E110042E7D7 /* OpeningScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpeningScreen.swift; sourceTree = "<group>"; };
 		D78637B02B8A53490042E7D7 /* LandingChoice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LandingChoice.swift; sourceTree = "<group>"; };
-		F42417D12BA2D79A00BF8B90 /* Agent+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Agent+CoreDataClass.swift"; path = "FairDivision/Agent+CoreDataClass.swift"; sourceTree = "<group>"; };
-		F42417D22BA2D79A00BF8B90 /* Agent+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Agent+CoreDataProperties.swift"; path = "FairDivision/Agent+CoreDataProperties.swift"; sourceTree = "<group>"; };
-		F42417D72BA2D9F000BF8B90 /* Good+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Good+CoreDataClass.swift"; path = "FairDivision/Good+CoreDataClass.swift"; sourceTree = "<group>"; };
-		F42417D82BA2D9F000BF8B90 /* Good+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Good+CoreDataProperties.swift"; path = "FairDivision/Good+CoreDataProperties.swift"; sourceTree = "<group>"; };
-		F42417DB2BA2D9FB00BF8B90 /* GoodValue+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "GoodValue+CoreDataClass.swift"; path = "FairDivision/GoodValue+CoreDataClass.swift"; sourceTree = "<group>"; };
-		F42417DC2BA2D9FB00BF8B90 /* GoodValue+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "GoodValue+CoreDataProperties.swift"; path = "FairDivision/GoodValue+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		D7C4E45D2BABA1140088F728 /* DataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DataModel.xcdatamodel; sourceTree = "<group>"; };
+		F42417D12BA2D79A00BF8B90 /* Agent+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Agent+CoreDataClass.swift"; sourceTree = "<group>"; };
+		F42417D22BA2D79A00BF8B90 /* Agent+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Agent+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		F42417D72BA2D9F000BF8B90 /* Good+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Good+CoreDataClass.swift"; sourceTree = "<group>"; };
+		F42417D82BA2D9F000BF8B90 /* Good+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Good+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		F42417DB2BA2D9FB00BF8B90 /* GoodValue+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "GoodValue+CoreDataClass.swift"; sourceTree = "<group>"; };
+		F42417DC2BA2D9FB00BF8B90 /* GoodValue+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "GoodValue+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		F4790B992B92F4F600A8543B /* ValuesInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValuesInput.swift; sourceTree = "<group>"; };
 		F4DF70D32B894480000B9015 /* FairDivision.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FairDivision.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F4DF70D62B894480000B9015 /* FairDivisionApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FairDivisionApp.swift; sourceTree = "<group>"; };
@@ -72,7 +73,6 @@
 		F4DF70ED2B894482000B9015 /* FairDivisionUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FairDivisionUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F4DF70F12B894482000B9015 /* FairDivisionUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FairDivisionUITests.swift; sourceTree = "<group>"; };
 		F4DF70F32B894482000B9015 /* FairDivisionUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FairDivisionUITestsLaunchTests.swift; sourceTree = "<group>"; };
-		F4E890FD2BA29288009ABBC8 /* DataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DataModel.xcdatamodel; sourceTree = "<group>"; };
 		F4E890FF2BA2941A009ABBC8 /* DataController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -101,7 +101,7 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		F4DF70CA2B89447F000B9015 = {
+		D7C4E4562BAB95C30088F728 /* CoreDataModels */ = {
 			isa = PBXGroup;
 			children = (
 				F42417DB2BA2D9FB00BF8B90 /* GoodValue+CoreDataClass.swift */,
@@ -110,6 +110,13 @@
 				F42417D82BA2D9F000BF8B90 /* Good+CoreDataProperties.swift */,
 				F42417D12BA2D79A00BF8B90 /* Agent+CoreDataClass.swift */,
 				F42417D22BA2D79A00BF8B90 /* Agent+CoreDataProperties.swift */,
+			);
+			path = CoreDataModels;
+			sourceTree = "<group>";
+		};
+		F4DF70CA2B89447F000B9015 = {
+			isa = PBXGroup;
+			children = (
 				F4DF70D52B894480000B9015 /* FairDivision */,
 				F4DF70E62B894482000B9015 /* FairDivisionTests */,
 				F4DF70F02B894482000B9015 /* FairDivisionUITests */,
@@ -130,6 +137,7 @@
 		F4DF70D52B894480000B9015 /* FairDivision */ = {
 			isa = PBXGroup;
 			children = (
+				D7C4E4562BAB95C30088F728 /* CoreDataModels */,
 				F4DF70D62B894480000B9015 /* FairDivisionApp.swift */,
 				F4DF70D82B894480000B9015 /* ContentView.swift */,
 				F4DF70DA2B894482000B9015 /* Assets.xcassets */,
@@ -141,7 +149,7 @@
 				D702047A2B93888D00A9C66A /* GoodsInput.swift */,
 				D702047C2B939A5200A9C66A /* PeopleInput.swift */,
 				F4790B992B92F4F600A8543B /* ValuesInput.swift */,
-				F4E890FC2BA29288009ABBC8 /* DataModel.xcdatamodeld */,
+				D7C4E45C2BABA1140088F728 /* DataModel.xcdatamodeld */,
 				F4E890FF2BA2941A009ABBC8 /* DataController.swift */,
 			);
 			path = FairDivision;
@@ -304,7 +312,6 @@
 			files = (
 				F42417D92BA2D9F000BF8B90 /* Good+CoreDataClass.swift in Sources */,
 				F42417DA2BA2D9F000BF8B90 /* Good+CoreDataProperties.swift in Sources */,
-				F42417D62BA2D9E100BF8B90 /* DataModel.xcdatamodeld in Sources */,
 				F4E891002BA2941A009ABBC8 /* DataController.swift in Sources */,
 				F4DF70D92B894480000B9015 /* ContentView.swift in Sources */,
 				D702047D2B939A5200A9C66A /* PeopleInput.swift in Sources */,
@@ -317,6 +324,7 @@
 				D702047B2B93888D00A9C66A /* GoodsInput.swift in Sources */,
 				D78637B12B8A53490042E7D7 /* LandingChoice.swift in Sources */,
 				D74172E92B9BD86F00E6CCA2 /* CreditsSelection.swift in Sources */,
+				D7C4E45E2BABA1140088F728 /* DataModel.xcdatamodeld in Sources */,
 				F4790B9A2B92F4F600A8543B /* ValuesInput.swift in Sources */,
 				F4DF70D72B894480000B9015 /* FairDivisionApp.swift in Sources */,
 			);
@@ -644,14 +652,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
-		F4E890FC2BA29288009ABBC8 /* DataModel.xcdatamodeld */ = {
+		D7C4E45C2BABA1140088F728 /* DataModel.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
-				F4E890FD2BA29288009ABBC8 /* DataModel.xcdatamodel */,
+				D7C4E45D2BABA1140088F728 /* DataModel.xcdatamodel */,
 			);
-			currentVersion = F4E890FD2BA29288009ABBC8 /* DataModel.xcdatamodel */;
+			currentVersion = D7C4E45D2BABA1140088F728 /* DataModel.xcdatamodel */;
 			name = DataModel.xcdatamodeld;
-			path = "/Users/srikarp/Freshman/PURE/fair-division-pure/FairDivision/FairDivision/DataModel.xcdatamodeld";
+			path = "/Users/anushkasankaran/Desktop/PURE/fair-division-pure/FairDivision/FairDivision/DataModel.xcdatamodeld";
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
 		};
