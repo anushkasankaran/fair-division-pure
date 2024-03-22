@@ -10,14 +10,12 @@ import SwiftUI
 struct CreditsInput: View {
 //    Change goods to take values from GoodsInput
     var agent: Agent
-    @State var inputs: [Int] = []
+    @State var goodsvalues: [GoodValue] = []
     @State private var stepperValue: Int = 0
-    @State private var goods: [Good] = [
-        Good(name: "Hello"), Good(name: "World")
-    ]
+    @State private var allocatedCredits: Int = 0
+    @State private var availableCredits: Int = 100
     
     @Environment(\.managedObjectContext) private var viewContext
-    @FetchRequest(entity: Agent.entity(), sortDescriptors: []) private var agents: FetchedResults<Agent>
     @FetchRequest(entity: Good.entity(), sortDescriptors: []) private var goods: FetchedResults<Good>
     
     var body: some View {
@@ -27,7 +25,7 @@ struct CreditsInput: View {
                     Spacer().frame(height: UIScreen.main.bounds.height/7)
                     ForEach(goods) { good in
                         HStack {
-                            Text(good.name)
+                            Text(good.name ?? "Unknown")
                                 .font(.system(size: 24))
                                 .frame(maxWidth: .infinity, alignment: .leading)
                             .padding(.leading, 30)
@@ -85,7 +83,7 @@ struct CreditsInput: View {
                             .foregroundColor(.black)
                     }
                     VStack {
-                        Text(agent.name)
+                        Text(agent.name ?? "Unknown")
                             .font(.system(size: 40))
                             .frame(maxWidth: .infinity, alignment: .center)
                         Text("Input values for each good")
@@ -96,6 +94,34 @@ struct CreditsInput: View {
                     .offset(y: 12)
                 }
                 .offset(y: -UIScreen.main.bounds.height/2.5)
+                ZStack {
+                    if (goods.count >= 2) {
+                        NavigationLink(destination: PeopleInput().navigationBarBackButtonHidden(true)) {
+                            ZStack {
+                                Rectangle()
+                                    .frame(width: 147, height: 54)
+                                    .foregroundColor(Color(hex: 0x7CB8FF))
+                                    .border(Color(hex: 0x669EE0))
+                                    .cornerRadius(20)
+                                
+                                Text("Done")
+                                    .foregroundColor(.black)
+                                    .font(.system(size: 24))
+                            }
+                        }
+                    } else {
+                        Rectangle()
+                            .frame(width: 147, height: 54)
+                            .foregroundColor(Color(hex: 0xBED5F0))
+                            .cornerRadius(20)
+                        
+                        Text("Done")
+                            .foregroundColor(.gray)
+                            .font(.system(size: 24))
+                    }
+                }
+                .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .bottomTrailing)
+                .padding(.trailing)
             }
             .frame(maxWidth: .infinity, maxHeight: .infinity)
             .background {
@@ -116,5 +142,5 @@ struct CreditsInput: View {
 }
 
 #Preview {
-    CreditsInput(agent: Agent(name: "Hello"))
+    CreditsInput(agent: Agent())
 }
