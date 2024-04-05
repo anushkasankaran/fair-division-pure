@@ -89,6 +89,9 @@ struct CreditsSelection: View {
                                     .font(.system(size: 24))
                             }
                         }
+                        .simultaneousGesture(TapGesture().onEnded {
+                            matrixState.getMaxNashWelfare(numAgents: people.count, numItems: goods.count)
+                        })
                     } else {
                         Rectangle()
                             .frame(width: 147, height: 54)

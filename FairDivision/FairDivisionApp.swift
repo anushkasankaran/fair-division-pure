@@ -11,7 +11,7 @@ import SwiftUI
 struct FairDivisionApp: App {
     var body: some Scene {
         WindowGroup {
-            GoodsInput()
+            LandingChoice()
         }
     }
 }

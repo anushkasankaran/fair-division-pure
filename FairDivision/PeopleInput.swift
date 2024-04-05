@@ -15,7 +15,6 @@ struct PeopleInput: View {
     @Binding var goods: [Good]
     @State private var newPerson: String = ""
     @State private var isEditing: Bool = false
-    @State private var navigateToNextPage = false
     
     var body: some View {
         NavigationView {
@@ -101,11 +100,7 @@ struct PeopleInput: View {
                 ZStack {
                     if (people.count >= 2) {
                         HStack {
-                            Button(action: {
-                                print(people.count)
-                                matrixState.setSize(peopleCount: people.count, goodsCount: goods.count)
-                                navigateToNextPage = true
-                            }) {
+                            NavigationLink(destination: CreditsSelection(matrixState: matrixState, goods: $goods, people: $people).navigationBarBackButtonHidden(true)) {
                                 ZStack {
                                     Rectangle()
                                         .frame(width: 147, height: 54)
@@ -118,20 +113,10 @@ struct PeopleInput: View {
                                         .font(.system(size: 24))
                                 }
                             }
-                            
-                            NavigationLink(destination: CreditsSelection(matrixState: matrixState, goods: $goods, people: $people).navigationBarBackButtonHidden(true)) {
-                                ZStack {
-                                    Rectangle()
-                                        .frame(width: 147, height: 54)
-                                        .foregroundColor(Color(hex: 0x7CB8FF))
-                                        .border(Color(hex: 0x669EE0))
-                                        .cornerRadius(20)
-                                    
-                                    Text("Next")
-                                        .foregroundColor(.black)
-                                        .font(.system(size: 24))
-                                }
-                            }
+                            .simultaneousGesture(TapGesture().onEnded {
+                                print(people.count)
+                                matrixState.setSize(peopleCount: people.count, goodsCount: goods.count)
+                            })
                         }
                     } else {
                         Rectangle()

@@ -24,13 +24,22 @@ struct LandingChoice: View {
     var body: some View {
         NavigationView {
             VStack {
-                Text("Fair Division")
-                    .offset(y: -15)
-                    .font(.system(size: 40))
-                    .padding(.bottom, UIScreen.main.bounds.height/20)
+                Text("Welcome to Fair Division!")
+                    .offset(y: -30)
+                    .font(.system(size: 30))
+                    .padding(.horizontal)
+                Text("This experimental app is meant to help you divide goods and tasks among participants in a fair manner.")
+                    .padding(.bottom)
+                    .padding(.horizontal)
+                Text("Alternatively, to divide negative items (e.g. rent, work details, chores), select Tasks!")
+                    .padding(.bottom)
+                    .padding(.horizontal)
+                Text("To divide positive items (e.g. inheritance, food, prizes), select Goods!")
+                    .padding(.bottom)
+                    .padding(.horizontal)
                 ZStack {
-                    Image("ChoiceCard")
-                        .offset(x: 4)
+//                    Image("ChoiceCard")
+//                        .offset(x: 4)
                     VStack {
                         NavigationLink(destination: GoodsInput().navigationBarBackButtonHidden(true)) {
                             ZStack {
@@ -45,7 +54,6 @@ struct LandingChoice: View {
                             }
                         }
                         .padding(.bottom, 35)
-                        .padding(.top, 50)
                         NavigationLink(destination: GoodsInput().navigationBarBackButtonHidden(true)) {
                             ZStack {
                                 Rectangle()

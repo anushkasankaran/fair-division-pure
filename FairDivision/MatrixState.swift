@@ -11,6 +11,8 @@ import SwiftUI
 class MatrixState: ObservableObject {
     @Published var matrix: [[Int]] = []
     @Published var totalCredits: [Int] = []
+    @Published var optAlloc: [[Int]] = []
+    @Published var optNashWelfare: Double = -1.0
     
     func setSize(peopleCount: Int, goodsCount: Int) {
         self.matrix = Array(repeating: Array(repeating: 0, count: goodsCount), count: peopleCount)
@@ -65,5 +67,59 @@ class MatrixState: ObservableObject {
             return 0
         }
         return totalCredits[rowIndex]
+    }
+    
+    func generateOwnerVectors(numAgents: Int, numItems: Int) -> [[Int]] {
+        let maxAllocNum = Int(pow(Double(numAgents), Double(numItems)))
+        var ownerVectors = [[Int]]()
+        
+        for allocNum in 0..<maxAllocNum {
+            var ownerVector = [Int]()
+            var remainingAllocNum = allocNum
+            
+            for _ in 0..<numItems {
+                ownerVector.append(remainingAllocNum % numAgents)
+                remainingAllocNum /= numAgents
+            }
+            
+            ownerVectors.append(ownerVector)
+        }
+        
+        return ownerVectors
+    }
+    
+    func generateAllAllocations(numAgents: Int, numItems: Int) -> [[[Int]]] {
+        let ownerVectors = generateOwnerVectors(numAgents: numAgents, numItems: numItems)
+        var allocations = [[[Int]]]()
+        
+        for ownerVector in ownerVectors {
+            var alloc = Array(repeating: [Int](), count: numAgents)
+            
+            for j in 0..<numItems {
+                alloc[ownerVector[j]].append(j)
+            }
+            
+            allocations.append(alloc)
+        }
+        
+        return allocations
+    }
+    
+    func getMaxNashWelfare(numAgents: Int, numItems: Int) {
+        for alloc in generateAllAllocations(numAgents: numAgents, numItems: numItems) {
+            var values = [Double]()
+            for i in 0..<numAgents {
+                let sumValue = alloc[i].reduce(0.0) { $0 + Double(matrix[i][$1]) }
+                values.append(sumValue)
+            }
+            let nashWelfare = values.reduce(1.0, *)
+            
+            if nashWelfare > optNashWelfare {
+                optNashWelfare = nashWelfare
+                optAlloc = alloc
+            }
+        }
+        
+        print(optAlloc)
     }
 }
