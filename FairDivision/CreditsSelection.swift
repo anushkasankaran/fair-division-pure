@@ -76,7 +76,7 @@ struct CreditsSelection: View {
                 
                 ZStack {
                     if (matrixState.isComplete()) {
-                        NavigationLink(destination: PeopleInput(goods: $goods).navigationBarBackButtonHidden(true)) {
+                        NavigationLink(destination: Allocation(matrixState: matrixState, goods: $goods, people: $people).navigationBarBackButtonHidden(true)) {
                             ZStack {
                                 Rectangle()
                                     .frame(width: 147, height: 54)
