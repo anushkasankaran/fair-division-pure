@@ -11,7 +11,6 @@ struct GoodsInput: View {
 //    Change to binding var to allow to be used in CreditsInput
     @State private var goods: [Good] = [Good(name: "Hello"), Good(name: "World")]
     @State private var newGood: String = ""
-    @State private var isEditing: Bool = false
     
     var body: some View {
         NavigationView {
@@ -45,30 +44,16 @@ struct GoodsInput: View {
                     .padding(.bottom, 10)
                     
                     ZStack {
-                        if isEditing {
-                            Rectangle()
-                                .fill(Color.white)
-                                .cornerRadius(20)
-                                .shadow(radius: 7)
-                            TextField("Enter good", text: $newGood, onCommit: {
-                                self.addGood()
-                                self.isEditing = false
-                            })
-                            .padding(.leading)
-                            .font(.system(size: 24))
-                        } else {
-                            Button(action: {
-                                newGood = ""
-                                self.isEditing = true
-                            }) {
-                                HStack {
-                                    Image(systemName: "plus")
-                                    Text("Add Item")
-                                }
-                                .foregroundColor(.gray)
-                                .frame(maxWidth: .infinity, alignment: .leading)
-                                .padding(.leading)
-                            }
+                        Rectangle()
+                            .fill(.white)
+                            .cornerRadius(20)
+                            .shadow(radius: 7)
+                        TextField("Enter Good...", text: $newGood)
+                        .padding(.leading)
+                        .font(.system(size: 24))
+                        .onSubmit {
+                            self.addGood()
+                            newGood = ""
                         }
                     }
                     .frame(width: UIScreen.main.bounds.width - 40, height: UIScreen.main.bounds.height/14)

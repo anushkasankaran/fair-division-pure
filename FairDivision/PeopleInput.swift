@@ -14,7 +14,6 @@ struct PeopleInput: View {
     ]
     @Binding var goods: [Good]
     @State private var newPerson: String = ""
-    @State private var isEditing: Bool = false
     
     var body: some View {
         NavigationView {
@@ -48,30 +47,16 @@ struct PeopleInput: View {
                     .padding(.bottom, 10)
                     
                     ZStack {
-                        if isEditing {
-                            Rectangle()
-                                .fill(.white)
-                                .cornerRadius(20)
-                                .shadow(radius: 7)
-                            TextField("Enter Name", text: $newPerson, onCommit: {
-                                self.addPerson()
-                                self.isEditing = false
-                            })
-                            .padding(.leading)
-                            .font(.system(size: 24))
-                        } else {
-                            Button(action: {
-                                newPerson = ""
-                                self.isEditing = true
-                            }) {
-                                HStack {
-                                    Image(systemName: "plus")
-                                    Text("Add Person")
-                                }
-                                .foregroundColor(.gray)
-                                .frame(maxWidth: .infinity, alignment: .leading)
-                                .padding(.leading)
-                            }
+                        Rectangle()
+                            .fill(.white)
+                            .cornerRadius(20)
+                            .shadow(radius: 7)
+                        TextField("Enter Name...", text: $newPerson)
+                        .padding(.leading)
+                        .font(.system(size: 24))
+                        .onSubmit {
+                            self.addPerson()
+                            newPerson = ""
                         }
                     }
                     .frame(width: UIScreen.main.bounds.width - 40, height: UIScreen.main.bounds.height/14)
