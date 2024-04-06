@@ -16,7 +16,7 @@ struct CreditsSelection: View {
         NavigationView {
             ZStack{
                 ScrollView {
-                    Spacer().frame(height: UIScreen.main.bounds.height/7)
+                    Spacer().frame(height: UIScreen.main.bounds.height/6.5)
                     ForEach(Array(people.enumerated()), id: \.offset) {index, person in
                         NavigationLink (destination: CreditsInput(agent: person, index: index, matrixState: matrixState, goods: $goods, people: $people).navigationBarBackButtonHidden(true)) {
                             ZStack {

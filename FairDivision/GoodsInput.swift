@@ -112,6 +112,7 @@ struct GoodsInput: View {
             .background {
                 Color(hex: 0xFBF8F0).ignoresSafeArea()
             }
+            .ignoresSafeArea(.keyboard)
         }
     }
     

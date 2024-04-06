@@ -24,7 +24,7 @@ class MatrixState: ObservableObject {
         guard rowIndex >= 0 && rowIndex < matrix.count && columnIndex >= 0 && columnIndex < matrix[rowIndex].count else {
             return
         }
-        if (value < 0 || (rowIsComplete(rowIndex: rowIndex) && value > matrix[rowIndex][columnIndex])) {
+        if (value < 0 || (rowIsComplete(rowIndex: rowIndex) && value > matrix[rowIndex][columnIndex]) || value > totalCredits[rowIndex]) {
             return
         }
         totalCredits[rowIndex] -= value - matrix[rowIndex][columnIndex]

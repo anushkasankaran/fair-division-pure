@@ -21,7 +21,7 @@ struct CreditsInput: View {
         NavigationView {
             ZStack{
                 ScrollView {
-                    Spacer().frame(height: UIScreen.main.bounds.height/7)
+                    Spacer().frame(height: UIScreen.main.bounds.height/6.5)
                     ForEach(Array(goods.enumerated()), id: \.offset) { i, good in
                         HStack {
                             Text(good.name)
@@ -44,9 +44,20 @@ struct CreditsInput: View {
                                     }
                                 }
                                 
-                                Text("\(matrixState.getValue(rowIndex: index, columnIndex: i))")
+                                TextField("--", text: Binding(
+                                    get: {
+                                        "\(matrixState.getValue(rowIndex: index, columnIndex: i))"
+                                    },
+                                    set: { newValue in
+                                        if let intValue = Int(newValue) {
+                                            matrixState.setValue(rowIndex: index, columnIndex: i, value: intValue)
+                                        }
+                                    }
+                                ))
                                     .foregroundColor(.black)
                                     .padding(.horizontal)
+                                    .frame(maxWidth: 60)
+                                    .multilineTextAlignment(.center)
                                 
                                 Button(action: {
                                     increaseStepper(i: i)
@@ -102,6 +113,7 @@ struct CreditsInput: View {
             .background {
                 Color(hex: 0xFBF8F0).ignoresSafeArea()
             }
+            .ignoresSafeArea(.keyboard)
         }
     }
     
