@@ -72,7 +72,7 @@ struct CreditsSelection: View {
                     }
                     .offset(y: 12)
                 }
-                .offset(y: -UIScreen.main.bounds.height/2.5)
+                .offset(y: -UIScreen.main.bounds.height/2.7)
                 
                 ZStack {
                     if (matrixState.isComplete()) {
@@ -105,6 +105,7 @@ struct CreditsSelection: View {
                 }
                 .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .bottomTrailing)
                 .padding(.trailing)
+                .padding(.bottom, 25)
             }
             .frame(maxWidth: .infinity, maxHeight: .infinity)
             .background {

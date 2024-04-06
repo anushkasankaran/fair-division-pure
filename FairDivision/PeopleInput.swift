@@ -69,7 +69,7 @@ struct PeopleInput: View {
                         .ignoresSafeArea()
                         .foregroundColor(Color(hex: 0xFBF8F0))
                         .blur(radius: 8)
-                    NavigationLink(destination: GoodsInput().navigationBarBackButtonHidden(true)) {
+                    NavigationLink(destination: GoodsInput(selection: .constant(3)).navigationBarBackButtonHidden(true)) {
                         Image(systemName: "arrow.left")
                             .font(.title)
                             .frame(maxWidth: .infinity, alignment: .leading)
@@ -80,7 +80,7 @@ struct PeopleInput: View {
                         .font(.system(size: 40))
                         .frame(maxWidth: .infinity, alignment: .center)
                 }
-                .offset(y: -UIScreen.main.bounds.height/2.5)
+                .offset(y: -UIScreen.main.bounds.height/2.7)
                 
                 ZStack {
                     if (people.count >= 2) {
@@ -116,6 +116,7 @@ struct PeopleInput: View {
                 }
                 .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .bottomTrailing)
                 .padding(.trailing)
+                .padding(.bottom, 25)
             }
             .frame(maxWidth: .infinity, maxHeight: .infinity)
             .background {

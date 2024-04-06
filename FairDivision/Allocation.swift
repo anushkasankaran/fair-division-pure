@@ -35,7 +35,7 @@ struct Allocation: View {
                         .ignoresSafeArea()
                         .foregroundColor(Color(hex: 0xFBF8F0))
                         .blur(radius: 8)
-                    NavigationLink(destination: LandingChoice().navigationBarBackButtonHidden(true)) {
+                    NavigationLink(destination: LandingChoice(selection: .constant(2)).navigationBarBackButtonHidden(true)) {
                         Image(systemName: "arrow.left")
                             .font(.title)
                             .frame(maxWidth: .infinity, alignment: .leading)
@@ -46,7 +46,7 @@ struct Allocation: View {
                         .font(.system(size: 40))
                         .frame(maxWidth: .infinity, alignment: .center)
                 }
-                .offset(y: -UIScreen.main.bounds.height/2.5)
+                .offset(y: -UIScreen.main.bounds.height/2.7)
             }
             .frame(maxWidth: .infinity, maxHeight: .infinity)
             .background {

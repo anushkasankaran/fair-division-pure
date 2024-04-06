@@ -21,6 +21,12 @@ extension Color {
 }
 
 struct LandingChoice: View {
+    @Binding var selection: Int
+        
+    init(selection: Binding<Int>) {
+        self._selection = selection
+    }
+
     var body: some View {
         NavigationView {
             ZStack {
@@ -36,13 +42,15 @@ struct LandingChoice: View {
                         .padding(.bottom)
                         .padding(.horizontal)
                     Text("To divide positive items (e.g. inheritance, food, prizes), select Goods!")
-                        .padding(.bottom)
+                        .padding(.bottom, 25)
                         .padding(.horizontal)
                     ZStack {
     //                    Image("ChoiceCard")
     //                        .offset(x: 4)
                         VStack {
-                            NavigationLink(destination: GoodsInput().navigationBarBackButtonHidden(true)) {
+                            Button(action: {
+                                selection = 3
+                            }) {
                                 ZStack {
                                     Rectangle()
                                         .fill(Color(hex: 0x7CB8FF))
@@ -55,7 +63,9 @@ struct LandingChoice: View {
                                 }
                             }
                             .padding(.bottom, 35)
-                            NavigationLink(destination: GoodsInput().navigationBarBackButtonHidden(true)) {
+                            Button(action: {
+                                selection = 1
+                            }) {
                                 ZStack {
                                     Rectangle()
                                         .fill(Color(hex: 0x7CB8FF))
@@ -74,12 +84,11 @@ struct LandingChoice: View {
                 .background {
                     Color(hex: 0xFBF8F0).ignoresSafeArea()
                 }
-                Navbar(selected: 1)
             }
         }
     }
 }
 
 #Preview {
-    LandingChoice()
+    LandingChoice(selection: .constant(2))
 }

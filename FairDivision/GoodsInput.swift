@@ -8,7 +8,8 @@
 import SwiftUI
 
 struct GoodsInput: View {
-//    Change to binding var to allow to be used in CreditsInput
+    @Binding var selection: Int
+    
     @State private var goods: [Good] = [Good(name: "Hello"), Good(name: "World")]
     @State private var newGood: String = ""
     
@@ -66,7 +67,9 @@ struct GoodsInput: View {
                         .ignoresSafeArea()
                         .foregroundColor(Color(hex: 0xFBF8F0))
                         .blur(radius: 8)
-                    NavigationLink(destination: LandingChoice().navigationBarBackButtonHidden(true)) {
+                    Button(action: {
+                        selection = 2
+                    }) {
                         Image(systemName: "arrow.left")
                             .font(.title)
                             .frame(maxWidth: .infinity, alignment: .leading)
@@ -77,7 +80,7 @@ struct GoodsInput: View {
                         .font(.system(size: 40))
                         .frame(maxWidth: .infinity, alignment: .center)
                 }
-                .offset(y: -UIScreen.main.bounds.height/2.5)
+                .offset(y: -UIScreen.main.bounds.height/2.7)
                 
                 ZStack {
                     if (goods.count >= 2) {
@@ -107,6 +110,7 @@ struct GoodsInput: View {
                 }
                 .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .bottomTrailing)
                 .padding(.trailing)
+                .padding(.bottom, 25)
             }
             .frame(maxWidth: .infinity, maxHeight: .infinity)
             .background {
@@ -127,5 +131,5 @@ struct GoodsInput: View {
 }
 
 #Preview {
-    GoodsInput()
+    GoodsInput(selection: .constant(3))
 }

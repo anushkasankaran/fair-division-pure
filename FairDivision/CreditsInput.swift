@@ -107,7 +107,7 @@ struct CreditsInput: View {
                         .frame(maxWidth: .infinity, alignment: .trailing)
                         .padding(.trailing)
                 }
-                .offset(y: -UIScreen.main.bounds.height/2.5)
+                .offset(y: -UIScreen.main.bounds.height/2.7)
             }
             .frame(maxWidth: .infinity, maxHeight: .infinity)
             .background {
