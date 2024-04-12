@@ -1,17 +1,15 @@
 //
-//  PeopleInput.swift
+//  PeopleInputTasks.swift
 //  FairDivision
 //
-//  Created by Anushka Sankaran on 3/2/24.
+//  Created by Anushka Sankaran on 4/12/24.
 //
 
 import SwiftUI
 
-struct PeopleInput: View {
-    @StateObject var matrixState = MatrixState()
-    @State private var people: [Agent] = [
-        Agent(name: "Hello"), Agent(name: "World")
-    ]
+struct PeopleInputTasks: View {
+    @StateObject var matrixState = TaskMatrix()
+    @State private var people: [Agent] = []
     @Binding var goods: [Good]
     @State private var newPerson: String = ""
     
@@ -85,7 +83,7 @@ struct PeopleInput: View {
                 ZStack {
                     if (people.count >= 2) {
                         HStack {
-                            NavigationLink(destination: CreditsSelection(matrixState: matrixState, goods: $goods, people: $people).navigationBarBackButtonHidden(true)) {
+                            NavigationLink(destination: TaskCreditsSelection(matrixState: matrixState, goods: $goods, people: $people).navigationBarBackButtonHidden(true)) {
                                 ZStack {
                                     Rectangle()
                                         .frame(width: 147, height: 54)
@@ -136,7 +134,7 @@ struct PeopleInput: View {
 }
 
 #Preview {
-    PeopleInput(goods: .constant([
+    PeopleInputTasks(goods: .constant([
         Good(name: "Good 1"),
         Good(name: "Good 2"),
         Good(name: "Good 3")

@@ -1,5 +1,5 @@
 //
-//  GoodsInput.swift
+//  PeopleInput.swift
 //  FairDivision
 //
 //  Created by Anushka Sankaran on 3/2/24.
@@ -7,32 +7,32 @@
 
 import SwiftUI
 
-struct GoodsInput: View {
-    @Binding var selection: Int
-    
-    @State private var goods: [Good] = [Good(name: "Hello"), Good(name: "World")]
-    @State private var newGood: String = ""
+struct PeopleInput: View {
+    @StateObject var matrixState = MatrixState()
+    @State private var people: [Agent] = []
+    @Binding var goods: [Good]
+    @State private var newPerson: String = ""
     
     var body: some View {
         NavigationView {
             ZStack{
                 ScrollView {
                     Spacer().frame(height: UIScreen.main.bounds.height/9)
-                    ForEach(goods) { good in
+                    ForEach(people) { agent in
                         ZStack {
                             Rectangle()
                                 .fill(Color.white)
                                 .cornerRadius(20)
                                 .shadow(radius: 7)
                                 .frame(width: UIScreen.main.bounds.width - 40, height: UIScreen.main.bounds.height/14)
-                            Text(good.name)
+                            Text(agent.name)
                                 .font(.system(size: 24))
                                 .frame(maxWidth: .infinity, alignment: .leading)
                                 .padding(.leading)
                                 .frame(width: UIScreen.main.bounds.width - 40)
                             Button(action: {
-                                if let index = goods.firstIndex(where: { $0.id == good.id }) {
-                                    goods.remove(at: index)
+                                if let index = people.firstIndex(where: { $0.id == agent.id }) {
+                                    people.remove(at: index)
                                 }
                             }) {
                                 Image(systemName: "x.circle")
@@ -49,12 +49,12 @@ struct GoodsInput: View {
                             .fill(.white)
                             .cornerRadius(20)
                             .shadow(radius: 7)
-                        TextField("Enter Good...", text: $newGood)
+                        TextField("Enter Name...", text: $newPerson)
                         .padding(.leading)
                         .font(.system(size: 24))
                         .onSubmit {
-                            self.addGood()
-                            newGood = ""
+                            self.addPerson()
+                            newPerson = ""
                         }
                     }
                     .frame(width: UIScreen.main.bounds.width - 40, height: UIScreen.main.bounds.height/14)
@@ -67,35 +67,39 @@ struct GoodsInput: View {
                         .ignoresSafeArea()
                         .foregroundColor(Color(hex: 0xFBF8F0))
                         .blur(radius: 8)
-                    Button(action: {
-                        selection = 2
-                    }) {
+                    NavigationLink(destination: GoodsInput(selection: .constant(3)).navigationBarBackButtonHidden(true)) {
                         Image(systemName: "arrow.left")
                             .font(.title)
                             .frame(maxWidth: .infinity, alignment: .leading)
                             .padding(.leading)
                             .foregroundColor(.black)
                     }
-                    Text("Goods")
+                    Text("People")
                         .font(.system(size: 40))
                         .frame(maxWidth: .infinity, alignment: .center)
                 }
                 .offset(y: -UIScreen.main.bounds.height/2.7)
                 
                 ZStack {
-                    if (goods.count >= 2) {
-                        NavigationLink(destination: PeopleInput(goods: $goods).navigationBarBackButtonHidden(true)) {
-                            ZStack {
-                                Rectangle()
-                                    .frame(width: 147, height: 54)
-                                    .foregroundColor(Color(hex: 0x7CB8FF))
-                                    .border(Color(hex: 0x669EE0))
-                                    .cornerRadius(20)
-                                
-                                Text("Done")
-                                    .foregroundColor(.black)
-                                    .font(.system(size: 24))
+                    if (people.count >= 2) {
+                        HStack {
+                            NavigationLink(destination: CreditsSelection(matrixState: matrixState, goods: $goods, people: $people).navigationBarBackButtonHidden(true)) {
+                                ZStack {
+                                    Rectangle()
+                                        .frame(width: 147, height: 54)
+                                        .foregroundColor(Color(hex: 0x7CB8FF))
+                                        .border(Color(hex: 0x669EE0))
+                                        .cornerRadius(20)
+                                    
+                                    Text("Done")
+                                        .foregroundColor(.black)
+                                        .font(.system(size: 24))
+                                }
                             }
+                            .simultaneousGesture(TapGesture().onEnded {
+                                print(people.count)
+                                matrixState.setSize(peopleCount: people.count, goodsCount: goods.count)
+                            })
                         }
                     } else {
                         Rectangle()
@@ -120,16 +124,19 @@ struct GoodsInput: View {
         }
     }
     
-    private func addGood() {
-        if !newGood.isEmpty {
-            let newGoodItem = Good(name: newGood)
-            goods.append(newGoodItem)
+    private func addPerson() {
+        if !newPerson.isEmpty {
+            people.append(Agent(name: newPerson))
         }
-        newGood = ""
-        print(goods)
+        newPerson = ""
+        print(people)
     }
 }
 
 #Preview {
-    GoodsInput(selection: .constant(3))
+    PeopleInput(goods: .constant([
+        Good(name: "Good 1"),
+        Good(name: "Good 2"),
+        Good(name: "Good 3")
+    ]))
 }
