@@ -1,21 +1,17 @@
 //
-//  PeopleInput.swift
+//  PeopleInputTasks.swift
 //  FairDivision
 //
-//  Created by Anushka Sankaran on 3/2/24.
+//  Created by Anushka Sankaran on 4/12/24.
 //
 
 import SwiftUI
 
-struct PeopleInput: View {
-    @StateObject var matrixState = MatrixState()
-    @State private var people: [Agent] = [
-        Agent(name: "Hello"), Agent(name: "World")
-    ]
+struct PeopleInputTasks: View {
+    @StateObject var matrixState = TaskMatrix()
+    @State private var people: [Agent] = []
     @Binding var goods: [Good]
     @State private var newPerson: String = ""
-    @State private var isEditing: Bool = false
-    @State private var navigateToNextPage = false
     
     var body: some View {
         NavigationView {
@@ -49,30 +45,16 @@ struct PeopleInput: View {
                     .padding(.bottom, 10)
                     
                     ZStack {
-                        if isEditing {
-                            Rectangle()
-                                .fill(.white)
-                                .cornerRadius(20)
-                                .shadow(radius: 7)
-                            TextField("Enter Name", text: $newPerson, onCommit: {
-                                self.addPerson()
-                                self.isEditing = false
-                            })
-                            .padding(.leading)
-                            .font(.system(size: 24))
-                        } else {
-                            Button(action: {
-                                newPerson = ""
-                                self.isEditing = true
-                            }) {
-                                HStack {
-                                    Image(systemName: "plus")
-                                    Text("Add Person")
-                                }
-                                .foregroundColor(.gray)
-                                .frame(maxWidth: .infinity, alignment: .leading)
-                                .padding(.leading)
-                            }
+                        Rectangle()
+                            .fill(.white)
+                            .cornerRadius(20)
+                            .shadow(radius: 7)
+                        TextField("Enter Name...", text: $newPerson)
+                        .padding(.leading)
+                        .font(.system(size: 24))
+                        .onSubmit {
+                            self.addPerson()
+                            newPerson = ""
                         }
                     }
                     .frame(width: UIScreen.main.bounds.width - 40, height: UIScreen.main.bounds.height/14)
@@ -85,7 +67,7 @@ struct PeopleInput: View {
                         .ignoresSafeArea()
                         .foregroundColor(Color(hex: 0xFBF8F0))
                         .blur(radius: 8)
-                    NavigationLink(destination: GoodsInput().navigationBarBackButtonHidden(true)) {
+                    NavigationLink(destination: GoodsInput(selection: .constant(3)).navigationBarBackButtonHidden(true)) {
                         Image(systemName: "arrow.left")
                             .font(.title)
                             .frame(maxWidth: .infinity, alignment: .leading)
@@ -96,16 +78,12 @@ struct PeopleInput: View {
                         .font(.system(size: 40))
                         .frame(maxWidth: .infinity, alignment: .center)
                 }
-                .offset(y: -UIScreen.main.bounds.height/2.5)
+                .offset(y: -UIScreen.main.bounds.height/2.7)
                 
                 ZStack {
                     if (people.count >= 2) {
                         HStack {
-                            Button(action: {
-                                print(people.count)
-                                matrixState.setSize(peopleCount: people.count, goodsCount: goods.count)
-                                navigateToNextPage = true
-                            }) {
+                            NavigationLink(destination: TaskCreditsSelection(matrixState: matrixState, goods: $goods, people: $people).navigationBarBackButtonHidden(true)) {
                                 ZStack {
                                     Rectangle()
                                         .frame(width: 147, height: 54)
@@ -118,20 +96,10 @@ struct PeopleInput: View {
                                         .font(.system(size: 24))
                                 }
                             }
-                            
-                            NavigationLink(destination: CreditsSelection(matrixState: matrixState, goods: $goods, people: $people).navigationBarBackButtonHidden(true)) {
-                                ZStack {
-                                    Rectangle()
-                                        .frame(width: 147, height: 54)
-                                        .foregroundColor(Color(hex: 0x7CB8FF))
-                                        .border(Color(hex: 0x669EE0))
-                                        .cornerRadius(20)
-                                    
-                                    Text("Next")
-                                        .foregroundColor(.black)
-                                        .font(.system(size: 24))
-                                }
-                            }
+                            .simultaneousGesture(TapGesture().onEnded {
+                                print(people.count)
+                                matrixState.setSize(peopleCount: people.count, goodsCount: goods.count)
+                            })
                         }
                     } else {
                         Rectangle()
@@ -146,11 +114,13 @@ struct PeopleInput: View {
                 }
                 .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .bottomTrailing)
                 .padding(.trailing)
+                .padding(.bottom, 25)
             }
             .frame(maxWidth: .infinity, maxHeight: .infinity)
             .background {
                 Color(hex: 0xFBF8F0).ignoresSafeArea()
             }
+            .ignoresSafeArea(.keyboard)
         }
     }
     
@@ -164,7 +134,7 @@ struct PeopleInput: View {
 }
 
 #Preview {
-    PeopleInput(goods: .constant([
+    PeopleInputTasks(goods: .constant([
         Good(name: "Good 1"),
         Good(name: "Good 2"),
         Good(name: "Good 3")

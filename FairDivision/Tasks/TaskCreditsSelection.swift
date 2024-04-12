@@ -1,14 +1,14 @@
 //
-//  CreditsSelection.swift
+//  TaskCreditsSelection.swift
 //  FairDivision
 //
-//  Created by Anushka Sankaran on 3/8/24.
+//  Created by Anushka Sankaran on 4/12/24.
 //
 
 import SwiftUI
 
-struct CreditsSelection: View {
-    @ObservedObject var matrixState: MatrixState
+struct TaskCreditsSelection: View {
+    @ObservedObject var matrixState: TaskMatrix
     @Binding var goods: [Good]
     @Binding var people: [Agent]
     
@@ -16,9 +16,9 @@ struct CreditsSelection: View {
         NavigationView {
             ZStack{
                 ScrollView {
-                    Spacer().frame(height: UIScreen.main.bounds.height/7)
+                    Spacer().frame(height: UIScreen.main.bounds.height/6.5)
                     ForEach(Array(people.enumerated()), id: \.offset) {index, person in
-                        NavigationLink (destination: CreditsInput(agent: person, index: index, matrixState: matrixState, goods: $goods, people: $people).navigationBarBackButtonHidden(true)) {
+                        NavigationLink (destination: TaskCreditInput(agent: person, index: index, matrixState: matrixState, goods: $goods, people: $people).navigationBarBackButtonHidden(true)) {
                             ZStack {
                                 Rectangle()
                                     .fill(.white)
@@ -72,11 +72,11 @@ struct CreditsSelection: View {
                     }
                     .offset(y: 12)
                 }
-                .offset(y: -UIScreen.main.bounds.height/2.5)
+                .offset(y: -UIScreen.main.bounds.height/2.7)
                 
                 ZStack {
                     if (matrixState.isComplete()) {
-                        NavigationLink(destination: PeopleInput(goods: $goods).navigationBarBackButtonHidden(true)) {
+                        NavigationLink(destination: TaskAllocation(matrixState: matrixState, goods: $goods, people: $people).navigationBarBackButtonHidden(true)) {
                             ZStack {
                                 Rectangle()
                                     .frame(width: 147, height: 54)
@@ -89,6 +89,9 @@ struct CreditsSelection: View {
                                     .font(.system(size: 24))
                             }
                         }
+                        .simultaneousGesture(TapGesture().onEnded {
+                            matrixState.roundRobin(agents: people, items: goods)
+                        })
                     } else {
                         Rectangle()
                             .frame(width: 147, height: 54)
@@ -102,6 +105,7 @@ struct CreditsSelection: View {
                 }
                 .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .bottomTrailing)
                 .padding(.trailing)
+                .padding(.bottom, 25)
             }
             .frame(maxWidth: .infinity, maxHeight: .infinity)
             .background {
@@ -112,7 +116,7 @@ struct CreditsSelection: View {
 }
 
 #Preview {
-    CreditsSelection(matrixState: MatrixState(), goods: .constant([
+    TaskCreditsSelection(matrixState: TaskMatrix(), goods: .constant([
         Good(name: "Good 1"),
         Good(name: "Good 2"),
         Good(name: "Good 3")
