@@ -135,7 +135,7 @@ class MatrixState: ObservableObject {
         let db = Firestore.firestore()
         
         // Used to set value for "isGood"
-        var type = true
+        let type = true
         
         // Convert valuation matrix into one dimension
         var onedval: [Int] = []
@@ -155,6 +155,11 @@ class MatrixState: ObservableObject {
             goods_.append(good.name)
         }
         
-        db.collection("inputs").addDocument(data: ["agents" : people_, "items" : goods_, "isGood" : type, "valuation" : onedval])
+        db.collection("inputs").document("Session " + UUID().uuidString).setData([
+            "agents" : people_,
+            "items" : goods_,
+            "isGood" : type,
+            "valuation" : onedval
+        ])
     }
 }

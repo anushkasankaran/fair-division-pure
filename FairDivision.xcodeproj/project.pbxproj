@@ -28,8 +28,11 @@
 		D7EC08BA2BCA36A1003359DC /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = D7EC08B92BCA36A1003359DC /* FirebaseAuth */; };
 		D7EC08BC2BCA36A1003359DC /* FirebaseDatabase in Frameworks */ = {isa = PBXBuildFile; productRef = D7EC08BB2BCA36A1003359DC /* FirebaseDatabase */; };
 		D7EC08BE2BCA36A1003359DC /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = D7EC08BD2BCA36A1003359DC /* FirebaseFirestore */; };
+		D7EC08C02BCB3BA7003359DC /* PastAllocs.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7EC08BF2BCB3BA7003359DC /* PastAllocs.swift */; };
+		D7EC08C32BCB3D72003359DC /* Good.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7EC08C22BCB3D72003359DC /* Good.swift */; };
+		D7EC08C52BCB3D82003359DC /* Agent.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7EC08C42BCB3D82003359DC /* Agent.swift */; };
+		D7EC08C72BCB3D9A003359DC /* GoodValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7EC08C62BCB3D9A003359DC /* GoodValue.swift */; };
 		F4790B9A2B92F4F600A8543B /* ValuesInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4790B992B92F4F600A8543B /* ValuesInput.swift */; };
-		F4790B9C2B92F74800A8543B /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4790B9B2B92F74800A8543B /* Models.swift */; };
 		F4DF70D72B894480000B9015 /* FairDivisionApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4DF70D62B894480000B9015 /* FairDivisionApp.swift */; };
 		F4DF70D92B894480000B9015 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4DF70D82B894480000B9015 /* ContentView.swift */; };
 		F4DF70DB2B894482000B9015 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F4DF70DA2B894482000B9015 /* Assets.xcassets */; };
@@ -76,8 +79,11 @@
 		D7D5ACBA2BC07C5900074EBC /* Allocation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Allocation.swift; sourceTree = "<group>"; };
 		D7D5ACBC2BC0817B00074EBC /* Navbar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Navbar.swift; sourceTree = "<group>"; };
 		D7EC08B32BCA35D9003359DC /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		D7EC08BF2BCB3BA7003359DC /* PastAllocs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PastAllocs.swift; sourceTree = "<group>"; };
+		D7EC08C22BCB3D72003359DC /* Good.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Good.swift; sourceTree = "<group>"; };
+		D7EC08C42BCB3D82003359DC /* Agent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Agent.swift; sourceTree = "<group>"; };
+		D7EC08C62BCB3D9A003359DC /* GoodValue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoodValue.swift; sourceTree = "<group>"; };
 		F4790B992B92F4F600A8543B /* ValuesInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValuesInput.swift; sourceTree = "<group>"; };
-		F4790B9B2B92F74800A8543B /* Models.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Models.swift; sourceTree = "<group>"; };
 		F4DF70D32B894480000B9015 /* FairDivision.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FairDivision.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F4DF70D62B894480000B9015 /* FairDivisionApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FairDivisionApp.swift; sourceTree = "<group>"; };
 		F4DF70D82B894480000B9015 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -163,6 +169,16 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		D7EC08C12BCB3D62003359DC /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				D7EC08C22BCB3D72003359DC /* Good.swift */,
+				D7EC08C42BCB3D82003359DC /* Agent.swift */,
+				D7EC08C62BCB3D9A003359DC /* GoodValue.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 		F4DF70CA2B89447F000B9015 = {
 			isa = PBXGroup;
 			children = (
@@ -196,9 +212,10 @@
 				F4DF70DA2B894482000B9015 /* Assets.xcassets */,
 				F4DF70DC2B894482000B9015 /* Preview Content */,
 				D78637AE2B896E110042E7D7 /* OpeningScreen.swift */,
+				D7EC08BF2BCB3BA7003359DC /* PastAllocs.swift */,
 				D78637B02B8A53490042E7D7 /* LandingChoice.swift */,
 				D7D5ACBC2BC0817B00074EBC /* Navbar.swift */,
-				F4790B9B2B92F74800A8543B /* Models.swift */,
+				D7EC08C12BCB3D62003359DC /* Models */,
 			);
 			path = FairDivision;
 			sourceTree = "<group>";
@@ -369,6 +386,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D7EC08C72BCB3D9A003359DC /* GoodValue.swift in Sources */,
 				F4DF70D92B894480000B9015 /* ContentView.swift in Sources */,
 				D71995D52BC9EE6600A44706 /* TasksInput.swift in Sources */,
 				D702047D2B939A5200A9C66A /* PeopleInput.swift in Sources */,
@@ -377,13 +395,15 @@
 				D702047B2B93888D00A9C66A /* GoodsInput.swift in Sources */,
 				D71995D72BC9EF6600A44706 /* TaskCreditsSelection.swift in Sources */,
 				D78637B12B8A53490042E7D7 /* LandingChoice.swift in Sources */,
+				D7EC08C02BCB3BA7003359DC /* PastAllocs.swift in Sources */,
 				D7780D362BAE3E0A0004A977 /* MatrixState.swift in Sources */,
 				D71995D92BC9EFD100A44706 /* TaskCreditInput.swift in Sources */,
 				D7D5ACBD2BC0817B00074EBC /* Navbar.swift in Sources */,
 				D74172E92B9BD86F00E6CCA2 /* CreditsSelection.swift in Sources */,
+				D7EC08C52BCB3D82003359DC /* Agent.swift in Sources */,
 				D71995DB2BC9F04100A44706 /* TaskAllocation.swift in Sources */,
-				F4790B9C2B92F74800A8543B /* Models.swift in Sources */,
 				F4790B9A2B92F4F600A8543B /* ValuesInput.swift in Sources */,
+				D7EC08C32BCB3D72003359DC /* Good.swift in Sources */,
 				D7780D342BAE3BB40004A977 /* BruteForceAlg.cpp in Sources */,
 				D71995D32BC9EE2B00A44706 /* PeopleInputTasks.swift in Sources */,
 				D71995CF2BC9E7C200A44706 /* TaskMatrix.swift in Sources */,

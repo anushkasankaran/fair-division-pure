@@ -101,7 +101,7 @@ class TaskMatrix: ObservableObject {
         let db = Firestore.firestore()
         
         // Used to set value for "isGood"
-        var type = false
+        let type = false
         
         // Convert valuation matrix into one dimension
         var onedval: [Int] = []
@@ -121,7 +121,12 @@ class TaskMatrix: ObservableObject {
             tasks_.append(task.name)
         }
         
-        db.collection("inputs").addDocument(data: ["agents" : people_, "items" : tasks_, "isGood" : type, "valuation" : onedval])
+        db.collection("inputs").document("Session " + UUID().uuidString).setData([
+            "agents" : people_, 
+            "items" : tasks_,
+            "isGood" : type,
+            "valuation" : onedval
+        ])
     }
 }
 
