@@ -90,7 +90,7 @@ struct CreditsSelection: View {
                             }
                         }
                         .simultaneousGesture(TapGesture().onEnded {
-                            matrixState.getMaxNashWelfare(numAgents: people.count, numItems: goods.count)
+                            matrixState.getMaxNashWelfare(agents: people, items: goods)
                         })
                     } else {
                         Rectangle()

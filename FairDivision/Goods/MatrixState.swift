@@ -7,12 +7,15 @@
 
 import Foundation
 import SwiftUI
+import FirebaseFirestore
 
 class MatrixState: ObservableObject {
     @Published var matrix: [[Int]] = []
     @Published var totalCredits: [Int] = []
     @Published var optAlloc: [[Int]] = []
     @Published var optNashWelfare: Double = -1.0
+    
+    private var db = Firestore.firestore()
     
     func setSize(peopleCount: Int, goodsCount: Int) {
         self.matrix = Array(repeating: Array(repeating: 0, count: goodsCount), count: peopleCount)
@@ -106,7 +109,11 @@ class MatrixState: ObservableObject {
         return allocations
     }
     
-    func getMaxNashWelfare(numAgents: Int, numItems: Int) {
+    func getMaxNashWelfare(agents: [Agent], items: [Good]) {
+        addSession(people: agents, goods: items)
+        
+        let numAgents = agents.count
+        let numItems = items.count
         for alloc in generateAllAllocations(numAgents: numAgents, numItems: numItems) {
             var values = [Double]()
             for i in 0..<numAgents {
@@ -122,5 +129,32 @@ class MatrixState: ObservableObject {
         }
         
         print(optAlloc)
+    }
+    
+    func addSession(people: [Agent], goods: [Good]) {
+        let db = Firestore.firestore()
+        
+        // Used to set value for "isGood"
+        var type = true
+        
+        // Convert valuation matrix into one dimension
+        var onedval: [Int] = []
+        for i in 0..<matrix.count {
+            for j in 0..<matrix[0].count {
+                onedval.append(matrix[i][j])
+            }
+        }
+        
+        var people_: [String] = []
+        for person in people {
+            people_.append(person.name)
+        }
+        
+        var goods_: [String] = []
+        for good in goods {
+            goods_.append(good.name)
+        }
+        
+        db.collection("inputs").addDocument(data: ["agents" : people_, "items" : goods_, "isGood" : type, "valuation" : onedval])
     }
 }
