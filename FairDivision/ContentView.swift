@@ -26,10 +26,11 @@ struct ContentView: View {
             
             GoodsInput(selection: $selection)
                 .tabItem {
-                    Image(systemName: "cart")
+                    Image(systemName: "shippingbox")
                 }
                 .tag(3)
         }
+        .transition(.slide)
     }
 }
 

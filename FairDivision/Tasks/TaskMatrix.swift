@@ -7,6 +7,7 @@
 
 import Foundation
 import SwiftUI
+import FirebaseFirestore
 
 class TaskMatrix: ObservableObject {
     @Published var matrix: [[Int]] = []
@@ -70,6 +71,8 @@ class TaskMatrix: ObservableObject {
     }
     
     func roundRobin(agents: [Agent], items: [Good]) {
+        addSession(people: agents, tasks: items)
+        
         self.optAlloc = Array(repeating: Array(), count: agents.count)
         var selectedGoods: [Int] = []
         var alteredMatrix = matrix.map { $0.map { $0 } }
@@ -92,6 +95,38 @@ class TaskMatrix: ObservableObject {
         }
         
         print(optAlloc)
+    }
+    
+    func addSession(people: [Agent], tasks: [Good]) {
+        let db = Firestore.firestore()
+        
+        // Used to set value for "isGood"
+        let type = false
+        
+        // Convert valuation matrix into one dimension
+        var onedval: [Int] = []
+        for i in 0..<matrix.count {
+            for j in 0..<matrix[0].count {
+                onedval.append(matrix[i][j])
+            }
+        }
+        
+        var people_: [String] = []
+        for person in people {
+            people_.append(person.name)
+        }
+        
+        var tasks_: [String] = []
+        for task in tasks {
+            tasks_.append(task.name)
+        }
+        
+        db.collection("inputs").document("Session " + UUID().uuidString).setData([
+            "agents" : people_, 
+            "items" : tasks_,
+            "isGood" : type,
+            "valuation" : onedval
+        ])
     }
 }
 

@@ -7,18 +7,6 @@
 
 import Foundation
 
-struct Good: Identifiable {
-    let id = UUID()
-    let name: String
-}
-
-// Model for agents
-struct Agent: Identifiable {
-    let id = UUID()
-    let name: String
-    var goods: [GoodValue] = [] // Stores values for goods
-}
-
 // Model for holding value for each good by an agent
 struct GoodValue: Identifiable {
     let id = UUID()

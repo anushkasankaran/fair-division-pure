@@ -31,7 +31,7 @@ struct Navbar: View {
             Button(action: {
                 self.selected = 2
             }) {
-                Image(systemName: self.selected == 2 ? "cart.fill" : "cart")
+                Image(systemName: self.selected == 2 ? "shippingbox.fill" : "shippingbox")
                     .padding(.leading, 30)
                     .padding(.trailing, 25)
                     .foregroundColor(.black)
