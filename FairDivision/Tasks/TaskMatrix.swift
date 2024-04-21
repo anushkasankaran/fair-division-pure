@@ -103,14 +103,26 @@ class TaskMatrix: ObservableObject {
         // Used to set value for "isGood"
         let type = false
         
-        // Convert valuation matrix into one dimension
-        var onedval: [Int] = []
-        for i in 0..<matrix.count {
-            for j in 0..<matrix[0].count {
-                onedval.append(matrix[i][j])
-            }
-        }
+//        // Convert valuation matrix into one dimension
+//        var onedval: [Int] = []
+//        for i in 0..<matrix.count {
+//            for j in 0..<matrix[0].count {
+//                onedval.append(matrix[i][j])
+//            }
+//        }
         
+        var list: [Any] = [Any]()
+        for i in 0..<matrix.count {
+            var person = people[i]
+            list.append(person.name)
+            var dict: [String : Int] = [String : Int]()
+            for j in 0..<matrix[i].count {
+                dict[tasks[j].name] = matrix[i][j]
+            }
+            list.append(dict)
+            list.append("-----")
+        }
+       
         var people_: [String] = []
         for person in people {
             people_.append(person.name)
@@ -121,11 +133,9 @@ class TaskMatrix: ObservableObject {
             tasks_.append(task.name)
         }
         
-        db.collection("inputs").document("Session " + UUID().uuidString).setData([
-            "agents" : people_, 
-            "items" : tasks_,
+        db.collection("allocations").document("Session " + UUID().uuidString).setData([
             "isGood" : type,
-            "valuation" : onedval
+            "data" : list
         ])
     }
 }
