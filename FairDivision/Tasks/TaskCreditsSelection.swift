@@ -9,7 +9,7 @@ import SwiftUI
 
 struct TaskCreditsSelection: View {
     @ObservedObject var matrixState: TaskMatrix
-    @Binding var goods: [Good]
+    @Binding var tasks: [Good]
     @Binding var people: [Agent]
     
     var body: some View {
@@ -18,7 +18,7 @@ struct TaskCreditsSelection: View {
                 ScrollView {
                     Spacer().frame(height: UIScreen.main.bounds.height/6.5)
                     ForEach(Array(people.enumerated()), id: \.offset) {index, person in
-                        NavigationLink (destination: TaskCreditInput(agent: person, index: index, matrixState: matrixState, goods: $goods, people: $people).navigationBarBackButtonHidden(true)) {
+                        NavigationLink (destination: TaskCreditInput(agent: person, index: index, matrixState: matrixState, tasks: $tasks, people: $people).navigationBarBackButtonHidden(true)) {
                             ZStack {
                                 Rectangle()
                                     .fill(.white)
@@ -54,7 +54,7 @@ struct TaskCreditsSelection: View {
                         .ignoresSafeArea()
                         .foregroundColor(Color(hex: 0xFBF8F0))
                         .blur(radius: 8)
-                    NavigationLink(destination: PeopleInput(goods: $goods).navigationBarBackButtonHidden(true)) {
+                    NavigationLink(destination: PeopleInputTasks(tasks: $tasks).navigationBarBackButtonHidden(true)) {
                         Image(systemName: "arrow.left")
                             .font(.title)
                             .frame(maxWidth: .infinity, alignment: .leading)
@@ -76,7 +76,7 @@ struct TaskCreditsSelection: View {
                 
                 ZStack {
                     if (matrixState.isComplete()) {
-                        NavigationLink(destination: TaskAllocation(matrixState: matrixState, goods: $goods, people: $people).navigationBarBackButtonHidden(true)) {
+                        NavigationLink(destination: TaskAllocation(matrixState: matrixState, tasks: $tasks, people: $people).navigationBarBackButtonHidden(true)) {
                             ZStack {
                                 Rectangle()
                                     .frame(width: 147, height: 54)
@@ -90,7 +90,7 @@ struct TaskCreditsSelection: View {
                             }
                         }
                         .simultaneousGesture(TapGesture().onEnded {
-                            matrixState.roundRobin(agents: people, items: goods)
+                            matrixState.roundRobin(agents: people, items: tasks)
                         })
                     } else {
                         Rectangle()
@@ -116,7 +116,7 @@ struct TaskCreditsSelection: View {
 }
 
 #Preview {
-    TaskCreditsSelection(matrixState: TaskMatrix(), goods: .constant([
+    TaskCreditsSelection(matrixState: TaskMatrix(), tasks: .constant([
         Good(name: "Good 1"),
         Good(name: "Good 2"),
         Good(name: "Good 3")

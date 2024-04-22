@@ -113,7 +113,7 @@ class TaskMatrix: ObservableObject {
             dict[person.name] = insideDict
         }
         
-        var doc = "Session " + UUID().uuidString
+        let doc = "Session " + UUID().uuidString
         db.collection("allocations").document(doc).setData([
             "isGood" : type,
         ])

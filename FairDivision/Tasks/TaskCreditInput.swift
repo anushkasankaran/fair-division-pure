@@ -13,7 +13,7 @@ struct TaskCreditInput: View {
     @ObservedObject var matrixState: TaskMatrix
     @State var inputs: [Int] = []
     @State private var stepperValue: Int = 0
-    @Binding var goods: [Good]
+    @Binding var tasks: [Good]
     @Binding var people: [Agent]
     
     var body: some View {
@@ -21,9 +21,9 @@ struct TaskCreditInput: View {
             ZStack{
                 ScrollView {
                     Spacer().frame(height: UIScreen.main.bounds.height/6.5)
-                    ForEach(Array(goods.enumerated()), id: \.offset) { i, good in
+                    ForEach(Array(tasks.enumerated()), id: \.offset) { i, task in
                         HStack {
-                            Text(good.name)
+                            Text(task.name)
                                 .font(.system(size: 24))
                                 .frame(maxWidth: .infinity, alignment: .leading)
                             .padding(.leading, 30)
@@ -84,7 +84,7 @@ struct TaskCreditInput: View {
                         .ignoresSafeArea()
                         .foregroundColor(Color(hex: 0xFBF8F0))
                         .blur(radius: 8)
-                    NavigationLink(destination: TaskCreditsSelection(matrixState: matrixState, goods: $goods, people: $people).navigationBarBackButtonHidden(true)) {
+                    NavigationLink(destination: TaskCreditsSelection(matrixState: matrixState, tasks: $tasks, people: $people).navigationBarBackButtonHidden(true)) {
                         Image(systemName: "arrow.left")
                             .font(.title)
                             .frame(maxWidth: .infinity, alignment: .leading)
@@ -127,7 +127,7 @@ struct TaskCreditInput: View {
 }
 
 #Preview {
-    TaskCreditInput(agent: Agent(name: "Hello"), index: 0, matrixState: TaskMatrix(), goods: .constant([
+    TaskCreditInput(agent: Agent(name: "Hello"), index: 0, matrixState: TaskMatrix(), tasks: .constant([
         Good(name: "Good 1"),
         Good(name: "Good 2"),
         Good(name: "Good 3")

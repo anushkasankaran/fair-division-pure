@@ -9,7 +9,7 @@ import SwiftUI
 
 struct TaskAllocation: View {
     @ObservedObject var matrixState: TaskMatrix
-    @Binding var goods: [Good]
+    @Binding var tasks: [Good]
     @Binding var people: [Agent]
     
     var body: some View {
@@ -22,8 +22,8 @@ struct TaskAllocation: View {
                             .font(.title)
                             .underline()
                             .padding(.bottom, 10)
-                        ForEach(matrixState.optAlloc[index], id: \.self) { goodIndex in
-                            Text(goods[goodIndex].name)
+                        ForEach(matrixState.optAlloc[index], id: \.self) { taskIndex in
+                            Text(tasks[taskIndex].name)
                                 .padding(.bottom, 10)
                         }
                     }
@@ -57,5 +57,5 @@ struct TaskAllocation: View {
 }
 
 #Preview {
-    TaskAllocation(matrixState: TaskMatrix(), goods: .constant([]), people: .constant([]))
+    TaskAllocation(matrixState: TaskMatrix(), tasks: .constant([]), people: .constant([]))
 }

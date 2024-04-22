@@ -10,7 +10,7 @@ import SwiftUI
 struct PeopleInputTasks: View {
     @StateObject var matrixState = TaskMatrix()
     @State private var people: [Agent] = []
-    @Binding var goods: [Good]
+    @Binding var tasks: [Good]
     @State private var newPerson: String = ""
     
     var body: some View {
@@ -67,7 +67,7 @@ struct PeopleInputTasks: View {
                         .ignoresSafeArea()
                         .foregroundColor(Color(hex: 0xFBF8F0))
                         .blur(radius: 8)
-                    NavigationLink(destination: GoodsInput(selection: .constant(3)).navigationBarBackButtonHidden(true)) {
+                    NavigationLink(destination: TasksInput(selection: .constant(3)).navigationBarBackButtonHidden(true)) {
                         Image(systemName: "arrow.left")
                             .font(.title)
                             .frame(maxWidth: .infinity, alignment: .leading)
@@ -83,7 +83,7 @@ struct PeopleInputTasks: View {
                 ZStack {
                     if (people.count >= 2) {
                         HStack {
-                            NavigationLink(destination: TaskCreditsSelection(matrixState: matrixState, goods: $goods, people: $people).navigationBarBackButtonHidden(true)) {
+                            NavigationLink(destination: TaskCreditsSelection(matrixState: matrixState, tasks: $tasks, people: $people).navigationBarBackButtonHidden(true)) {
                                 ZStack {
                                     Rectangle()
                                         .frame(width: 147, height: 54)
@@ -98,7 +98,7 @@ struct PeopleInputTasks: View {
                             }
                             .simultaneousGesture(TapGesture().onEnded {
                                 print(people.count)
-                                matrixState.setSize(peopleCount: people.count, goodsCount: goods.count)
+                                matrixState.setSize(peopleCount: people.count, goodsCount: tasks.count)
                             })
                         }
                     } else {
@@ -134,7 +134,7 @@ struct PeopleInputTasks: View {
 }
 
 #Preview {
-    PeopleInputTasks(goods: .constant([
+    PeopleInputTasks(tasks: .constant([
         Good(name: "Good 1"),
         Good(name: "Good 2"),
         Good(name: "Good 3")

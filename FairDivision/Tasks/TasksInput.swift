@@ -10,7 +10,7 @@ import SwiftUI
 struct TasksInput: View {
     @Binding var selection: Int
     
-    @State private var goods: [Good] = []
+    @State private var tasks: [Good] = []
     @State private var newGood: String = ""
     
     var body: some View {
@@ -18,21 +18,21 @@ struct TasksInput: View {
             ZStack{
                 ScrollView {
                     Spacer().frame(height: UIScreen.main.bounds.height/9)
-                    ForEach(goods) { good in
+                    ForEach(tasks) { task in
                         ZStack {
                             Rectangle()
                                 .fill(Color.white)
                                 .cornerRadius(20)
                                 .shadow(radius: 7)
                                 .frame(width: UIScreen.main.bounds.width - 40, height: UIScreen.main.bounds.height/14)
-                            Text(good.name)
+                            Text(task.name)
                                 .font(.system(size: 24))
                                 .frame(maxWidth: .infinity, alignment: .leading)
                                 .padding(.leading)
                                 .frame(width: UIScreen.main.bounds.width - 40)
                             Button(action: {
-                                if let index = goods.firstIndex(where: { $0.id == good.id }) {
-                                    goods.remove(at: index)
+                                if let index = tasks.firstIndex(where: { $0.id == task.id }) {
+                                    tasks.remove(at: index)
                                 }
                             }) {
                                 Image(systemName: "x.circle")
@@ -83,8 +83,8 @@ struct TasksInput: View {
                 .offset(y: -UIScreen.main.bounds.height/2.7)
                 
                 ZStack {
-                    if (goods.count >= 2) {
-                        NavigationLink(destination: PeopleInputTasks(goods: $goods).navigationBarBackButtonHidden(true)) {
+                    if (tasks.count >= 2) {
+                        NavigationLink(destination: PeopleInputTasks(tasks: $tasks).navigationBarBackButtonHidden(true)) {
                             ZStack {
                                 Rectangle()
                                     .frame(width: 147, height: 54)
@@ -123,10 +123,10 @@ struct TasksInput: View {
     private func addGood() {
         if !newGood.isEmpty {
             let newGoodItem = Good(name: newGood)
-            goods.append(newGoodItem)
+            tasks.append(newGoodItem)
         }
         newGood = ""
-        print(goods)
+        print(tasks)
     }
 }
 
