@@ -102,41 +102,27 @@ class TaskMatrix: ObservableObject {
         
         // Used to set value for "isGood"
         let type = false
-        
-//        // Convert valuation matrix into one dimension
-//        var onedval: [Int] = []
-//        for i in 0..<matrix.count {
-//            for j in 0..<matrix[0].count {
-//                onedval.append(matrix[i][j])
-//            }
-//        }
-        
-        var list: [Any] = [Any]()
+
+        var dict: [String: [String: Int]] = [String: [String: Int]]()
         for i in 0..<matrix.count {
-            var person = people[i]
-            list.append(person.name)
-            var dict: [String : Int] = [String : Int]()
+            let person = people[i]
+            var insideDict: [String: Int] = [String: Int]()
             for j in 0..<matrix[i].count {
-                dict[tasks[j].name] = matrix[i][j]
+                insideDict[tasks[j].name] = matrix[i][j]
             }
-            list.append(dict)
-            list.append("-----")
-        }
-       
-        var people_: [String] = []
-        for person in people {
-            people_.append(person.name)
+            dict[person.name] = insideDict
         }
         
-        var tasks_: [String] = []
-        for task in tasks {
-            tasks_.append(task.name)
-        }
-        
-        db.collection("allocations").document("Session " + UUID().uuidString).setData([
+        var doc = "Session " + UUID().uuidString
+        db.collection("allocations").document(doc).setData([
             "isGood" : type,
-            "data" : list
         ])
+        
+        for (key, value) in dict {
+            db.collection("allocations").document(doc).setData([
+                key: value
+            ], merge: true)
+        }
     }
 }
 

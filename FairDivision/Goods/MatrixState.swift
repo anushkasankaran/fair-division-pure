@@ -137,29 +137,25 @@ class MatrixState: ObservableObject {
         // Used to set value for "isGood"
         let type = true
         
-        // Convert valuation matrix into one dimension
-        var onedval: [Int] = []
+        var dict: [String: [String: Int]] = [String: [String: Int]]()
         for i in 0..<matrix.count {
-            for j in 0..<matrix[0].count {
-                onedval.append(matrix[i][j])
+            let person = people[i]
+            var insideDict: [String: Int] = [String: Int]()
+            for j in 0..<matrix[i].count {
+                insideDict[goods[j].name] = matrix[i][j]
             }
+            dict[person.name] = insideDict
         }
         
-        var people_: [String] = []
-        for person in people {
-            people_.append(person.name)
-        }
-        
-        var goods_: [String] = []
-        for good in goods {
-            goods_.append(good.name)
-        }
-        
-        db.collection("inputs").document("Session " + UUID().uuidString).setData([
-            "agents" : people_,
-            "items" : goods_,
+        var doc = "Session " + UUID().uuidString
+        db.collection("allocations").document(doc).setData([
             "isGood" : type,
-            "valuation" : onedval
         ])
+        
+        for (key, value) in dict {
+            db.collection("allocations").document(doc).setData([
+                key: value
+            ], merge: true)
+        }
     }
 }
