@@ -53,8 +53,10 @@ struct PeopleInput: View {
                         .padding(.leading)
                         .font(.system(size: 24))
                         .onSubmit {
-                            self.addPerson()
-                            newPerson = ""
+                            if !people.contains(where: {$0.name.lowercased() == newPerson.lowercased()}) {
+                                self.addPerson()
+                                newPerson = ""
+                            }
                         }
                     }
                     .frame(width: UIScreen.main.bounds.width - 40, height: UIScreen.main.bounds.height/14)

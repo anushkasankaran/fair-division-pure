@@ -53,8 +53,10 @@ struct GoodsInput: View {
                         .padding(.leading)
                         .font(.system(size: 24))
                         .onSubmit {
-                            self.addGood()
-                            newGood = ""
+                            if !goods.contains(where: {$0.name.lowercased() == newGood.lowercased()}) {
+                                self.addGood()
+                                newGood = ""
+                            }
                         }
                     }
                     .frame(width: UIScreen.main.bounds.width - 40, height: UIScreen.main.bounds.height/14)
