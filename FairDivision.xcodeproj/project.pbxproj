@@ -18,7 +18,7 @@
 		D74172E92B9BD86F00E6CCA2 /* CreditsSelection.swift in Sources */ = {isa = PBXBuildFile; fileRef = D74172E82B9BD86F00E6CCA2 /* CreditsSelection.swift */; };
 		D74172EB2B9BDD2B00E6CCA2 /* CreditsInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = D74172EA2B9BDD2B00E6CCA2 /* CreditsInput.swift */; };
 		D7780D342BAE3BB40004A977 /* BruteForceAlg.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D7780D322BAE3BB40004A977 /* BruteForceAlg.cpp */; };
-		D7780D362BAE3E0A0004A977 /* MatrixState.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7780D352BAE3E0A0004A977 /* MatrixState.swift */; };
+		D7780D362BAE3E0A0004A977 /* GoodMatrix.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7780D352BAE3E0A0004A977 /* GoodMatrix.swift */; };
 		D78637AF2B896E110042E7D7 /* OpeningScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = D78637AE2B896E110042E7D7 /* OpeningScreen.swift */; };
 		D78637B12B8A53490042E7D7 /* LandingChoice.swift in Sources */ = {isa = PBXBuildFile; fileRef = D78637B02B8A53490042E7D7 /* LandingChoice.swift */; };
 		D7D5ACBB2BC07C5900074EBC /* Allocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7D5ACBA2BC07C5900074EBC /* Allocation.swift */; };
@@ -73,7 +73,7 @@
 		D7780D312BAE3BB40004A977 /* FairDivision-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "FairDivision-Bridging-Header.h"; sourceTree = "<group>"; };
 		D7780D322BAE3BB40004A977 /* BruteForceAlg.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = BruteForceAlg.cpp; sourceTree = "<group>"; };
 		D7780D332BAE3BB40004A977 /* BruteForceAlg.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = BruteForceAlg.hpp; sourceTree = "<group>"; };
-		D7780D352BAE3E0A0004A977 /* MatrixState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatrixState.swift; sourceTree = "<group>"; };
+		D7780D352BAE3E0A0004A977 /* GoodMatrix.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoodMatrix.swift; sourceTree = "<group>"; };
 		D78637AE2B896E110042E7D7 /* OpeningScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpeningScreen.swift; sourceTree = "<group>"; };
 		D78637B02B8A53490042E7D7 /* LandingChoice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LandingChoice.swift; sourceTree = "<group>"; };
 		D7D5ACBA2BC07C5900074EBC /* Allocation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Allocation.swift; sourceTree = "<group>"; };
@@ -131,7 +131,7 @@
 				D7D5ACBA2BC07C5900074EBC /* Allocation.swift */,
 				D702047C2B939A5200A9C66A /* PeopleInput.swift */,
 				F4790B992B92F4F600A8543B /* ValuesInput.swift */,
-				D7780D352BAE3E0A0004A977 /* MatrixState.swift */,
+				D7780D352BAE3E0A0004A977 /* GoodMatrix.swift */,
 				D74172E82B9BD86F00E6CCA2 /* CreditsSelection.swift */,
 				D74172EA2B9BDD2B00E6CCA2 /* CreditsInput.swift */,
 				D702047A2B93888D00A9C66A /* GoodsInput.swift */,
@@ -396,7 +396,7 @@
 				D71995D72BC9EF6600A44706 /* TaskCreditsSelection.swift in Sources */,
 				D78637B12B8A53490042E7D7 /* LandingChoice.swift in Sources */,
 				D7EC08C02BCB3BA7003359DC /* PastAllocs.swift in Sources */,
-				D7780D362BAE3E0A0004A977 /* MatrixState.swift in Sources */,
+				D7780D362BAE3E0A0004A977 /* GoodMatrix.swift in Sources */,
 				D71995D92BC9EFD100A44706 /* TaskCreditInput.swift in Sources */,
 				D7D5ACBD2BC0817B00074EBC /* Navbar.swift in Sources */,
 				D74172E92B9BD86F00E6CCA2 /* CreditsSelection.swift in Sources */,

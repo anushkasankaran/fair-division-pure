@@ -11,7 +11,7 @@ struct CreditsInput: View {
 //    Change goods to take values from GoodsInput
     var agent: Agent
     var index: Int
-    @ObservedObject var matrixState: MatrixState
+    @ObservedObject var matrixState: GoodMatrix
     @State var inputs: [Int] = []
     @State private var stepperValue: Int = 0
     @Binding var goods: [Good]
@@ -127,7 +127,7 @@ struct CreditsInput: View {
 }
 
 #Preview {
-    CreditsInput(agent: Agent(name: "Hello"), index: 0, matrixState: MatrixState(), goods: .constant([
+    CreditsInput(agent: Agent(name: "Hello"), index: 0, matrixState: GoodMatrix(), goods: .constant([
         Good(name: "Good 1"),
         Good(name: "Good 2"),
         Good(name: "Good 3")

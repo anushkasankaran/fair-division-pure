@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct PeopleInput: View {
-    @StateObject var matrixState = MatrixState()
+    @StateObject var matrixState = GoodMatrix()
     @State private var people: [Agent] = []
     @Binding var goods: [Good]
     @State private var newPerson: String = ""

@@ -9,7 +9,7 @@ import Foundation
 import SwiftUI
 import FirebaseFirestore
 
-class MatrixState: ObservableObject {
+class GoodMatrix: ObservableObject {
     @Published var matrix: [[Int]] = []
     @Published var totalCredits: [Int] = []
     @Published var optAlloc: [[Int]] = []

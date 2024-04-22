@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct CreditsSelection: View {
-    @ObservedObject var matrixState: MatrixState
+    @ObservedObject var matrixState: GoodMatrix
     @Binding var goods: [Good]
     @Binding var people: [Agent]
     
@@ -116,7 +116,7 @@ struct CreditsSelection: View {
 }
 
 #Preview {
-    CreditsSelection(matrixState: MatrixState(), goods: .constant([
+    CreditsSelection(matrixState: GoodMatrix(), goods: .constant([
         Good(name: "Good 1"),
         Good(name: "Good 2"),
         Good(name: "Good 3")

@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct Allocation: View {
-    @ObservedObject var matrixState: MatrixState
+    @ObservedObject var matrixState: GoodMatrix
     @Binding var goods: [Good]
     @Binding var people: [Agent]
     
@@ -57,5 +57,5 @@ struct Allocation: View {
 }
 
 #Preview {
-    Allocation(matrixState: MatrixState(), goods: .constant([]), people: .constant([]))
+    Allocation(matrixState: GoodMatrix(), goods: .constant([]), people: .constant([]))
 }
