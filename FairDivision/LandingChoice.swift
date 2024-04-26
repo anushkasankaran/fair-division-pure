@@ -31,7 +31,7 @@ struct LandingChoice: View {
         NavigationView {
             ZStack {
                 VStack {
-                    Text("Welcome to Fair Division!")
+                    Text("Welcome to FairShare!")
                         .offset(y: -30)
                         .font(.system(size: 30))
                         .padding(.horizontal)

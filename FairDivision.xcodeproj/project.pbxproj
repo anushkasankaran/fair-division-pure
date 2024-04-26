@@ -10,7 +10,7 @@
 		D702047B2B93888D00A9C66A /* GoodsInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = D702047A2B93888D00A9C66A /* GoodsInput.swift */; };
 		D702047D2B939A5200A9C66A /* PeopleInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = D702047C2B939A5200A9C66A /* PeopleInput.swift */; };
 		D71995CF2BC9E7C200A44706 /* TaskMatrix.swift in Sources */ = {isa = PBXBuildFile; fileRef = D71995CE2BC9E7C200A44706 /* TaskMatrix.swift */; };
-		D71995D32BC9EE2B00A44706 /* PeopleInputTasks.swift in Sources */ = {isa = PBXBuildFile; fileRef = D71995D22BC9EE2B00A44706 /* PeopleInputTasks.swift */; };
+		D71995D32BC9EE2B00A44706 /* TaskPeopleInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = D71995D22BC9EE2B00A44706 /* TaskPeopleInput.swift */; };
 		D71995D52BC9EE6600A44706 /* TasksInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = D71995D42BC9EE6600A44706 /* TasksInput.swift */; };
 		D71995D72BC9EF6600A44706 /* TaskCreditsSelection.swift in Sources */ = {isa = PBXBuildFile; fileRef = D71995D62BC9EF6600A44706 /* TaskCreditsSelection.swift */; };
 		D71995D92BC9EFD100A44706 /* TaskCreditInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = D71995D82BC9EFD100A44706 /* TaskCreditInput.swift */; };
@@ -63,7 +63,7 @@
 		D702047A2B93888D00A9C66A /* GoodsInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoodsInput.swift; sourceTree = "<group>"; };
 		D702047C2B939A5200A9C66A /* PeopleInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeopleInput.swift; sourceTree = "<group>"; };
 		D71995CE2BC9E7C200A44706 /* TaskMatrix.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskMatrix.swift; sourceTree = "<group>"; };
-		D71995D22BC9EE2B00A44706 /* PeopleInputTasks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeopleInputTasks.swift; sourceTree = "<group>"; };
+		D71995D22BC9EE2B00A44706 /* TaskPeopleInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskPeopleInput.swift; sourceTree = "<group>"; };
 		D71995D42BC9EE6600A44706 /* TasksInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TasksInput.swift; sourceTree = "<group>"; };
 		D71995D62BC9EF6600A44706 /* TaskCreditsSelection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskCreditsSelection.swift; sourceTree = "<group>"; };
 		D71995D82BC9EFD100A44706 /* TaskCreditInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskCreditInput.swift; sourceTree = "<group>"; };
@@ -143,7 +143,7 @@
 			isa = PBXGroup;
 			children = (
 				D71995CE2BC9E7C200A44706 /* TaskMatrix.swift */,
-				D71995D22BC9EE2B00A44706 /* PeopleInputTasks.swift */,
+				D71995D22BC9EE2B00A44706 /* TaskPeopleInput.swift */,
 				D71995D42BC9EE6600A44706 /* TasksInput.swift */,
 				D71995D62BC9EF6600A44706 /* TaskCreditsSelection.swift */,
 				D71995D82BC9EFD100A44706 /* TaskCreditInput.swift */,
@@ -405,7 +405,7 @@
 				F4790B9A2B92F4F600A8543B /* ValuesInput.swift in Sources */,
 				D7EC08C32BCB3D72003359DC /* Good.swift in Sources */,
 				D7780D342BAE3BB40004A977 /* BruteForceAlg.cpp in Sources */,
-				D71995D32BC9EE2B00A44706 /* PeopleInputTasks.swift in Sources */,
+				D71995D32BC9EE2B00A44706 /* TaskPeopleInput.swift in Sources */,
 				D71995CF2BC9E7C200A44706 /* TaskMatrix.swift in Sources */,
 				D7D5ACBB2BC07C5900074EBC /* Allocation.swift in Sources */,
 				F4DF70D72B894480000B9015 /* FairDivisionApp.swift in Sources */,
@@ -570,10 +570,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"FairDivision/Preview Content\"";
-				DEVELOPMENT_TEAM = MNML8TT33H;
+				DEVELOPMENT_TEAM = "";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -588,6 +588,7 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.FairDivision;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_OBJC_BRIDGING_HEADER = "FairDivision/Algorithms/FairDivision-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -602,10 +603,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"FairDivision/Preview Content\"";
-				DEVELOPMENT_TEAM = MNML8TT33H;
+				DEVELOPMENT_TEAM = "";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -620,6 +621,7 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.FairDivision;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_OBJC_BRIDGING_HEADER = "FairDivision/Algorithms/FairDivision-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;

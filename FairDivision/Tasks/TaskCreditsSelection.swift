@@ -54,7 +54,7 @@ struct TaskCreditsSelection: View {
                         .ignoresSafeArea()
                         .foregroundColor(Color(hex: 0xFBF8F0))
                         .blur(radius: 8)
-                    NavigationLink(destination: PeopleInputTasks(tasks: $tasks).navigationBarBackButtonHidden(true)) {
+                    NavigationLink(destination: TaskPeopleInput(tasks: $tasks).navigationBarBackButtonHidden(true)) {
                         Image(systemName: "arrow.left")
                             .font(.title)
                             .frame(maxWidth: .infinity, alignment: .leading)

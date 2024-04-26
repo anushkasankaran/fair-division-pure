@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct PeopleInputTasks: View {
+struct TaskPeopleInput: View {
     @StateObject var matrixState = TaskMatrix()
     @State private var people: [Agent] = []
     @Binding var tasks: [Good]
@@ -136,7 +136,7 @@ struct PeopleInputTasks: View {
 }
 
 #Preview {
-    PeopleInputTasks(tasks: .constant([
+    TaskPeopleInput(tasks: .constant([
         Good(name: "Good 1"),
         Good(name: "Good 2"),
         Good(name: "Good 3")

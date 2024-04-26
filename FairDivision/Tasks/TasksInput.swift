@@ -86,7 +86,7 @@ struct TasksInput: View {
                 
                 ZStack {
                     if (tasks.count >= 2) {
-                        NavigationLink(destination: PeopleInputTasks(tasks: $tasks).navigationBarBackButtonHidden(true)) {
+                        NavigationLink(destination: TaskPeopleInput(tasks: $tasks).navigationBarBackButtonHidden(true)) {
                             ZStack {
                                 Rectangle()
                                     .frame(width: 147, height: 54)
