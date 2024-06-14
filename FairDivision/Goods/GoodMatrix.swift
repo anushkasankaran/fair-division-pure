@@ -19,7 +19,7 @@ class GoodMatrix: ObservableObject {
     
     func setSize(peopleCount: Int, goodsCount: Int) {
         self.matrix = Array(repeating: Array(repeating: 0, count: goodsCount), count: peopleCount)
-        self.totalCredits = Array(repeating: goodsCount * 10, count: peopleCount)
+        self.totalCredits = Array(repeating: 100, count: peopleCount)
     }
     
     func setValue(rowIndex: Int, columnIndex: Int, value: Int) {
