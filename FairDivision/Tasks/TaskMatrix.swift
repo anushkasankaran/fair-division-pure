@@ -28,8 +28,13 @@ class TaskMatrix: ObservableObject {
         if (value < 0 || (rowIsComplete(rowIndex: rowIndex) && value > matrix[rowIndex][columnIndex]) || value > maxVal) {
             return
         }
-        totalCredits[rowIndex] -= value - matrix[rowIndex][columnIndex]
-        matrix[rowIndex][columnIndex] = value
+        if (matrix[rowIndex][columnIndex] == 0 && columnIndex == (matrix.first?.count ?? 0) - 1) {
+            matrix[rowIndex][columnIndex] = maxVal
+            totalCredits[rowIndex] = 0
+        } else {
+            totalCredits[rowIndex] -= value - matrix[rowIndex][columnIndex]
+            matrix[rowIndex][columnIndex] = value
+        }
     }
     
     func getValue(rowIndex: Int, columnIndex: Int) -> Int {

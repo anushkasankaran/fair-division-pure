@@ -31,8 +31,13 @@ class GoodMatrix: ObservableObject {
         if (value < 0 || (rowIsComplete(rowIndex: rowIndex) && value > matrix[rowIndex][columnIndex]) || value > maxVal) {
             return
         }
-        totalCredits[rowIndex] -= value - matrix[rowIndex][columnIndex]
-        matrix[rowIndex][columnIndex] = value
+        if (matrix[rowIndex][columnIndex] == 0 && columnIndex == (matrix.first?.count ?? 0) - 1) {
+            matrix[rowIndex][columnIndex] = maxVal
+            totalCredits[rowIndex] = 0
+        } else {
+            totalCredits[rowIndex] -= value - matrix[rowIndex][columnIndex]
+            matrix[rowIndex][columnIndex] = value
+        }
     }
     
     func getValue(rowIndex: Int, columnIndex: Int) -> Int {
@@ -46,10 +51,8 @@ class GoodMatrix: ObservableObject {
     }
     
     func isComplete() -> Bool {
-        let columnsCount = matrix.first?.count ?? 0
-        
         for row in matrix {
-            if row.reduce(0, +) != 10 * columnsCount {
+            if row.reduce(0, +) != 100 {
                 return false
             }
         }
@@ -57,11 +60,10 @@ class GoodMatrix: ObservableObject {
     }
     
     func rowIsComplete(rowIndex: Int) -> Bool {
-        let columnsCount = matrix.first?.count ?? 0
         if (rowIndex < 0 || rowIndex >= totalCredits.count) {
             return true
         }
-        return (matrix[rowIndex].reduce(0, +) == 10 * columnsCount)
+        return (matrix[rowIndex].reduce(0, +) == 100)
     }
     
     func getRemainingCredits(rowIndex: Int) -> Int {
