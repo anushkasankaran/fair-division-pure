@@ -99,7 +99,6 @@ struct PeopleInput: View {
                                 }
                             }
                             .simultaneousGesture(TapGesture().onEnded {
-                                print(people.count)
                                 matrixState.setSize(peopleCount: people.count, goodsCount: goods.count)
                             })
                         }

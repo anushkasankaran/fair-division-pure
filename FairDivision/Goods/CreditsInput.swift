@@ -44,7 +44,7 @@ struct CreditsInput: View {
                                     }
                                 }
                                 
-                                TextField("--", text: Binding(
+                                TextField("---", text: Binding(
                                     get: {
                                         "\(matrixState.getValue(rowIndex: index, columnIndex: i))"
                                     },
@@ -56,7 +56,7 @@ struct CreditsInput: View {
                                 ))
                                     .foregroundColor(.black)
                                     .padding(.horizontal)
-                                    .frame(maxWidth: 60)
+                                    .frame(maxWidth: 90)
                                     .multilineTextAlignment(.center)
                                 
                                 Button(action: {

@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		230876C690611849EFAAE954 /* Pods_FairDivision_FairDivisionUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 78CF6F844311058892641E61 /* Pods_FairDivision_FairDivisionUITests.framework */; };
+		8AFF166B2A19EFB66319AAEE /* Pods_FairDivisionTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F62B7CA9DE8F297BF2480194 /* Pods_FairDivisionTests.framework */; };
+		9D8996A612320FA8EDAA752F /* Pods_FairDivision.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B8E4E0687AB014C1BFEE5864 /* Pods_FairDivision.framework */; };
 		D702047B2B93888D00A9C66A /* GoodsInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = D702047A2B93888D00A9C66A /* GoodsInput.swift */; };
 		D702047D2B939A5200A9C66A /* PeopleInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = D702047C2B939A5200A9C66A /* PeopleInput.swift */; };
 		D71995CF2BC9E7C200A44706 /* TaskMatrix.swift in Sources */ = {isa = PBXBuildFile; fileRef = D71995CE2BC9E7C200A44706 /* TaskMatrix.swift */; };
@@ -24,10 +27,6 @@
 		D7D5ACBB2BC07C5900074EBC /* Allocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7D5ACBA2BC07C5900074EBC /* Allocation.swift */; };
 		D7D5ACBD2BC0817B00074EBC /* Navbar.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7D5ACBC2BC0817B00074EBC /* Navbar.swift */; };
 		D7EC08B42BCA35D9003359DC /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D7EC08B32BCA35D9003359DC /* GoogleService-Info.plist */; };
-		D7EC08B82BCA36A1003359DC /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = D7EC08B72BCA36A1003359DC /* FirebaseAnalytics */; };
-		D7EC08BA2BCA36A1003359DC /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = D7EC08B92BCA36A1003359DC /* FirebaseAuth */; };
-		D7EC08BC2BCA36A1003359DC /* FirebaseDatabase in Frameworks */ = {isa = PBXBuildFile; productRef = D7EC08BB2BCA36A1003359DC /* FirebaseDatabase */; };
-		D7EC08BE2BCA36A1003359DC /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = D7EC08BD2BCA36A1003359DC /* FirebaseFirestore */; };
 		D7EC08C02BCB3BA7003359DC /* PastAllocs.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7EC08BF2BCB3BA7003359DC /* PastAllocs.swift */; };
 		D7EC08C32BCB3D72003359DC /* Good.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7EC08C22BCB3D72003359DC /* Good.swift */; };
 		D7EC08C52BCB3D82003359DC /* Agent.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7EC08C42BCB3D82003359DC /* Agent.swift */; };
@@ -60,6 +59,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		06B3FE8DED53DC51BE9C8FE4 /* Pods-FairDivision.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FairDivision.release.xcconfig"; path = "Target Support Files/Pods-FairDivision/Pods-FairDivision.release.xcconfig"; sourceTree = "<group>"; };
+		140BECF09174F7A4C5F96C5E /* Pods-FairDivisionTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FairDivisionTests.release.xcconfig"; path = "Target Support Files/Pods-FairDivisionTests/Pods-FairDivisionTests.release.xcconfig"; sourceTree = "<group>"; };
+		164E41043714DCB4A2CDCA51 /* Pods-FairDivision.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FairDivision.debug.xcconfig"; path = "Target Support Files/Pods-FairDivision/Pods-FairDivision.debug.xcconfig"; sourceTree = "<group>"; };
+		763532B16CE3017C8CB05652 /* Pods-FairDivision-FairDivisionUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FairDivision-FairDivisionUITests.debug.xcconfig"; path = "Target Support Files/Pods-FairDivision-FairDivisionUITests/Pods-FairDivision-FairDivisionUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		785A3D392A7C5316B3FC8C79 /* Pods-FairDivisionTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FairDivisionTests.debug.xcconfig"; path = "Target Support Files/Pods-FairDivisionTests/Pods-FairDivisionTests.debug.xcconfig"; sourceTree = "<group>"; };
+		78CF6F844311058892641E61 /* Pods_FairDivision_FairDivisionUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FairDivision_FairDivisionUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B8E4E0687AB014C1BFEE5864 /* Pods_FairDivision.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FairDivision.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D702047A2B93888D00A9C66A /* GoodsInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoodsInput.swift; sourceTree = "<group>"; };
 		D702047C2B939A5200A9C66A /* PeopleInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeopleInput.swift; sourceTree = "<group>"; };
 		D71995CE2BC9E7C200A44706 /* TaskMatrix.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskMatrix.swift; sourceTree = "<group>"; };
@@ -84,6 +90,8 @@
 		D7EC08C42BCB3D82003359DC /* Agent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Agent.swift; sourceTree = "<group>"; };
 		D7EC08C62BCB3D9A003359DC /* GoodValue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoodValue.swift; sourceTree = "<group>"; };
 		F4790B992B92F4F600A8543B /* ValuesInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValuesInput.swift; sourceTree = "<group>"; };
+		F4AE72932C2FB47D00016A06 /* FirebaseFirestore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = FirebaseFirestore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F4AE72942C2FB47D00016A06 /* FirebaseFunctions.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = FirebaseFunctions.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F4DF70D32B894480000B9015 /* FairDivision.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FairDivision.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F4DF70D62B894480000B9015 /* FairDivisionApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FairDivisionApp.swift; sourceTree = "<group>"; };
 		F4DF70D82B894480000B9015 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -94,6 +102,8 @@
 		F4DF70ED2B894482000B9015 /* FairDivisionUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FairDivisionUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F4DF70F12B894482000B9015 /* FairDivisionUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FairDivisionUITests.swift; sourceTree = "<group>"; };
 		F4DF70F32B894482000B9015 /* FairDivisionUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FairDivisionUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		F62B7CA9DE8F297BF2480194 /* Pods_FairDivisionTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FairDivisionTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F939717F80A8FE029445BF1B /* Pods-FairDivision-FairDivisionUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FairDivision-FairDivisionUITests.release.xcconfig"; path = "Target Support Files/Pods-FairDivision-FairDivisionUITests/Pods-FairDivision-FairDivisionUITests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,10 +111,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D7EC08BC2BCA36A1003359DC /* FirebaseDatabase in Frameworks */,
-				D7EC08BE2BCA36A1003359DC /* FirebaseFirestore in Frameworks */,
-				D7EC08B82BCA36A1003359DC /* FirebaseAnalytics in Frameworks */,
-				D7EC08BA2BCA36A1003359DC /* FirebaseAuth in Frameworks */,
+				9D8996A612320FA8EDAA752F /* Pods_FairDivision.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -112,6 +119,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8AFF166B2A19EFB66319AAEE /* Pods_FairDivisionTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -119,12 +127,26 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				230876C690611849EFAAE954 /* Pods_FairDivision_FairDivisionUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5F869AA1A8975A6380FADE2A /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				164E41043714DCB4A2CDCA51 /* Pods-FairDivision.debug.xcconfig */,
+				06B3FE8DED53DC51BE9C8FE4 /* Pods-FairDivision.release.xcconfig */,
+				763532B16CE3017C8CB05652 /* Pods-FairDivision-FairDivisionUITests.debug.xcconfig */,
+				F939717F80A8FE029445BF1B /* Pods-FairDivision-FairDivisionUITests.release.xcconfig */,
+				785A3D392A7C5316B3FC8C79 /* Pods-FairDivisionTests.debug.xcconfig */,
+				140BECF09174F7A4C5F96C5E /* Pods-FairDivisionTests.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		D71995D02BC9EDEB00A44706 /* Goods */ = {
 			isa = PBXGroup;
 			children = (
@@ -165,6 +187,11 @@
 		D7EC08B62BCA36A1003359DC /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				F4AE72932C2FB47D00016A06 /* FirebaseFirestore.framework */,
+				F4AE72942C2FB47D00016A06 /* FirebaseFunctions.framework */,
+				B8E4E0687AB014C1BFEE5864 /* Pods_FairDivision.framework */,
+				78CF6F844311058892641E61 /* Pods_FairDivision_FairDivisionUITests.framework */,
+				F62B7CA9DE8F297BF2480194 /* Pods_FairDivisionTests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -187,6 +214,7 @@
 				F4DF70F02B894482000B9015 /* FairDivisionUITests */,
 				F4DF70D42B894480000B9015 /* Products */,
 				D7EC08B62BCA36A1003359DC /* Frameworks */,
+				5F869AA1A8975A6380FADE2A /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -252,9 +280,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = F4DF70F72B894482000B9015 /* Build configuration list for PBXNativeTarget "FairDivision" */;
 			buildPhases = (
+				1488B7BC92804CE5447650EB /* [CP] Check Pods Manifest.lock */,
 				F4DF70CF2B894480000B9015 /* Sources */,
 				F4DF70D02B894480000B9015 /* Frameworks */,
 				F4DF70D12B894480000B9015 /* Resources */,
+				CFE543700D6220C2A8A17FDD /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -262,10 +292,6 @@
 			);
 			name = FairDivision;
 			packageProductDependencies = (
-				D7EC08B72BCA36A1003359DC /* FirebaseAnalytics */,
-				D7EC08B92BCA36A1003359DC /* FirebaseAuth */,
-				D7EC08BB2BCA36A1003359DC /* FirebaseDatabase */,
-				D7EC08BD2BCA36A1003359DC /* FirebaseFirestore */,
 			);
 			productName = FairDivision;
 			productReference = F4DF70D32B894480000B9015 /* FairDivision.app */;
@@ -275,6 +301,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = F4DF70FA2B894482000B9015 /* Build configuration list for PBXNativeTarget "FairDivisionTests" */;
 			buildPhases = (
+				B37FFB4E60AAB18113C43002 /* [CP] Check Pods Manifest.lock */,
 				F4DF70DF2B894482000B9015 /* Sources */,
 				F4DF70E02B894482000B9015 /* Frameworks */,
 				F4DF70E12B894482000B9015 /* Resources */,
@@ -285,6 +312,8 @@
 				F4DF70E52B894482000B9015 /* PBXTargetDependency */,
 			);
 			name = FairDivisionTests;
+			packageProductDependencies = (
+			);
 			productName = FairDivisionTests;
 			productReference = F4DF70E32B894482000B9015 /* FairDivisionTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
@@ -293,9 +322,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = F4DF70FD2B894482000B9015 /* Build configuration list for PBXNativeTarget "FairDivisionUITests" */;
 			buildPhases = (
+				25A6D386F6F13B5F6672A8F4 /* [CP] Check Pods Manifest.lock */,
 				F4DF70E92B894482000B9015 /* Sources */,
 				F4DF70EA2B894482000B9015 /* Frameworks */,
 				F4DF70EB2B894482000B9015 /* Resources */,
+				1FF06D377A2EA543F55A4A4A /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -341,7 +372,6 @@
 			);
 			mainGroup = F4DF70CA2B89447F000B9015;
 			packageReferences = (
-				D7EC08B52BCA3688003359DC /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 			);
 			productRefGroup = F4DF70D42B894480000B9015 /* Products */;
 			projectDirPath = "";
@@ -380,6 +410,109 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		1488B7BC92804CE5447650EB /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-FairDivision-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		1FF06D377A2EA543F55A4A4A /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-FairDivision-FairDivisionUITests/Pods-FairDivision-FairDivisionUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-FairDivision-FairDivisionUITests/Pods-FairDivision-FairDivisionUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-FairDivision-FairDivisionUITests/Pods-FairDivision-FairDivisionUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		25A6D386F6F13B5F6672A8F4 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-FairDivision-FairDivisionUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B37FFB4E60AAB18113C43002 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-FairDivisionTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		CFE543700D6220C2A8A17FDD /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-FairDivision/Pods-FairDivision-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-FairDivision/Pods-FairDivision-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-FairDivision/Pods-FairDivision-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		F4DF70CF2B894480000B9015 /* Sources */ = {
@@ -566,6 +699,7 @@
 		};
 		F4DF70F82B894482000B9015 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 164E41043714DCB4A2CDCA51 /* Pods-FairDivision.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -575,6 +709,7 @@
 				DEVELOPMENT_ASSET_PATHS = "\"FairDivision/Preview Content\"";
 				DEVELOPMENT_TEAM = "";
 				ENABLE_PREVIEWS = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -599,6 +734,7 @@
 		};
 		F4DF70F92B894482000B9015 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 06B3FE8DED53DC51BE9C8FE4 /* Pods-FairDivision.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -608,6 +744,7 @@
 				DEVELOPMENT_ASSET_PATHS = "\"FairDivision/Preview Content\"";
 				DEVELOPMENT_TEAM = "";
 				ENABLE_PREVIEWS = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -631,6 +768,7 @@
 		};
 		F4DF70FB2B894482000B9015 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 785A3D392A7C5316B3FC8C79 /* Pods-FairDivisionTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -650,6 +788,7 @@
 		};
 		F4DF70FC2B894482000B9015 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 140BECF09174F7A4C5F96C5E /* Pods-FairDivisionTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -669,6 +808,7 @@
 		};
 		F4DF70FE2B894482000B9015 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 763532B16CE3017C8CB05652 /* Pods-FairDivision-FairDivisionUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -686,6 +826,7 @@
 		};
 		F4DF70FF2B894482000B9015 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F939717F80A8FE029445BF1B /* Pods-FairDivision-FairDivisionUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -741,40 +882,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCRemoteSwiftPackageReference section */
-		D7EC08B52BCA3688003359DC /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/firebase/firebase-ios-sdk.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 10.24.0;
-			};
-		};
-/* End XCRemoteSwiftPackageReference section */
-
-/* Begin XCSwiftPackageProductDependency section */
-		D7EC08B72BCA36A1003359DC /* FirebaseAnalytics */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = D7EC08B52BCA3688003359DC /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
-			productName = FirebaseAnalytics;
-		};
-		D7EC08B92BCA36A1003359DC /* FirebaseAuth */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = D7EC08B52BCA3688003359DC /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
-			productName = FirebaseAuth;
-		};
-		D7EC08BB2BCA36A1003359DC /* FirebaseDatabase */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = D7EC08B52BCA3688003359DC /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
-			productName = FirebaseDatabase;
-		};
-		D7EC08BD2BCA36A1003359DC /* FirebaseFirestore */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = D7EC08B52BCA3688003359DC /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
-			productName = FirebaseFirestore;
-		};
-/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = F4DF70CB2B89447F000B9015 /* Project object */;
 }

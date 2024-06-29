@@ -8,6 +8,7 @@
 import Foundation
 import SwiftUI
 import FirebaseFirestore
+import FirebaseFunctions
 
 class GoodMatrix: ObservableObject {
     @Published var matrix: [[Int]] = []
@@ -114,25 +115,74 @@ class GoodMatrix: ObservableObject {
     func getMaxNashWelfare(agents: [Agent], items: [Good]) {
         addSession(people: agents, goods: items)
         
-        let numAgents = agents.count
-        let numItems = items.count
-        for alloc in generateAllAllocations(numAgents: numAgents, numItems: numItems) {
-            var values = [Double]()
-            for i in 0..<numAgents {
-                let sumValue = alloc[i].reduce(0.0) { $0 + Double(matrix[i][$1]) }
-                values.append(sumValue)
-            }
-            let nashWelfare = values.reduce(1.0, *)
-            
-            if nashWelfare > optNashWelfare {
-                optNashWelfare = nashWelfare
-                optAlloc = alloc
-            }
+        let functions = Functions.functions()
+        
+        var myDict: [String: Any] = [String: Any]()
+        myDict["agents"] = agents.count
+        myDict["items"] = items.count
+        myDict["values"] = matrix
+                
+        var allocation: [[Int]]?
+        callCloudFunction(dict: myDict) { result in
+            allocation = result
         }
+
+        if let allocation = allocation {
+            self.optAlloc = allocation
+            print("Received allocations")
+        } else {
+            print("Error retrieving allocations from Cloud Function")
+        }
+
+
+//        let numAgents = agents.count
+//        let numItems = items.count
+//        for alloc in generateAllAllocations(numAgents: numAgents, numItems: numItems) {
+//            var values = [Double]()
+//            for i in 0..<numAgents {
+//                let sumValue = alloc[i].reduce(0.0) { $0 + Double(matrix[i][$1]) }
+//                values.append(sumValue)
+//            }
+//            let nashWelfare = values.reduce(1.0, *)
+//            
+//            if nashWelfare > optNashWelfare {
+//                optNashWelfare = nashWelfare
+//                optAlloc = alloc
+//            }
+//        }
         
         print(optAlloc)
     }
     
+    func callCloudFunction(dict: [String: Any], completion: @escaping ([[Int]]?) -> Void) {
+        let queue = DispatchQueue(label: "cloudFunctionCallQueue")
+
+        queue.async {
+            Functions.functions().httpsCallable("mnw").call(dict) { result, error in
+                if let error = error {
+                    print("Error calling Cloud Function:", error.localizedDescription)
+                    completion(nil)
+                    return
+                }
+
+                guard let data = result?.data as? [String: Any] else {
+                    print("Unexpected response format from Cloud Function")
+                    completion(nil)
+                    return
+                }
+
+                guard let allocations = data["alloc"] as? [[Int]] else {
+                    print("Missing 'alloc' key in Cloud Function response")
+                    completion(nil)
+                    return
+                }
+
+                completion(allocations)
+            }
+        }
+    }
+
+
     func addSession(people: [Agent], goods: [Good]) {
         let db = Firestore.firestore()
         
@@ -149,7 +199,7 @@ class GoodMatrix: ObservableObject {
             dict[person.name] = insideDict
         }
         
-        var doc = "Session " + UUID().uuidString
+        let doc = "Session " + UUID().uuidString
         db.collection("allocations").document(doc).setData([
             "isGood" : type,
         ])
